@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { useState} from 'react';
+import Homepage from './Homepage/Homepage';
+import Signinpage from './Signinpage/Signinpage';
+import Taskpage from './Taskpage/Taskpage';
+
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App = () => {
+
+  const [signedIn, updateSignedIn] = useState(false);
+  const [path, updatePath] = useState('home');
+
+  return !signedIn ?
+      <div className="signinp h-100">
+        <Signinpage updatePath={updatePath} updateSignedIn={updateSignedIn}/>
+      </div> 
+    :
+    <div className="homep h-100">
+      {
+        path==='home' && <Homepage updatePath={updatePath}/>
+      }
+      {
+        path==='task' && <Taskpage className="signinp" updatePath={updatePath} updateSignedIn={updateSignedIn}/>
+      }
     </div>
-  );
 }
 
 export default App;

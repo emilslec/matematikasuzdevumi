@@ -1,0 +1,12 @@
+body {
+  background-color: #D0F6CA;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+}
+
+
+
