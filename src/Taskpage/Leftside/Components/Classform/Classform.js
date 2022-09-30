@@ -1,18 +1,24 @@
 import React,{useState} from 'react';
 import './Classform.css'
 
-const Classform = ({classs}) => {
+const Classform = ({classs, themes, updateActiveTheme}) => {
 
   const [show, updateShow] = useState(false);
   return (
-	  <div className="mt4  ">
+	  <div className="mt4">
       <h3 onClick={() => updateShow(!show) } className="f4 b db mb2 mh4   blue">{classs}. Klase</h3>
       {show &&
         <ol className="">
-          <li>Apples</li>
-          <li>Oranges</li>
-          <li>Banana</li>
-          <li>Golf balls</li>
+        {themes.map((theme, i) => {
+              return (
+                  <li
+                   key={i}
+                   onClick={()=> updateActiveTheme(theme)}
+                  > {theme} </li>
+              );
+            })
+          
+        }
         </ol>
       }
     </div>
