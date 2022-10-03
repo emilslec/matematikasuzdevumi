@@ -18,7 +18,7 @@ const Signin = ({updatePath, updateSignedIn}) => {
           <label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox"></input> Remember me</label>
         </fieldset>
         <div className="">
-          <input className="w-40 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in"></input>
+          <input className="w-30 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in"></input>
         </div>
         <div className="">
           <input className="w-30 mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Register"></input>
@@ -29,7 +29,7 @@ const Signin = ({updatePath, updateSignedIn}) => {
             updateSignedIn(true); 
             updatePath('home')}
            }
-           className="mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+           className="w-30 mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
            type="submit" 
            value="Annonymus"></input>
         </div>

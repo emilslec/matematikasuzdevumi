@@ -1,14 +1,14 @@
-import React,{useState} from 'react';
+import React,{} from 'react';
 import Classform from '../Classform/Classform';
 import Activetasks from '../Activetasks/Activetasks';
 
 
-const Tasklist = () => {
+const Tasklist = ({activeTheme, updateActiveTheme}) => {
 
   const classes = [1,2,3,4];
   const themes= [["abols", "maize", "fortnite", "pupg mobile"], ["janis", "pecha", "fortnite", "pupg mobile"], ["aaa"], ["ijust dont know mens", 'hahaha']];
   
-  const [activeTheme, updateActiveTheme] = useState('');
+  
   
     return(
       <div className="flex">

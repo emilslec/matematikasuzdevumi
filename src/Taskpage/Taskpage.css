@@ -8,5 +8,10 @@ body {
   gap: 20px;
 }
 
+.container3 {
+  display: grid;
+  grid-template-columns:1fr;
+}
+
 
 

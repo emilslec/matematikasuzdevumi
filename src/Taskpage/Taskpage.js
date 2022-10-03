@@ -1,4 +1,4 @@
-import React,{} from 'react';
+import React from 'react';
 
 import Leftside from './Leftside/Leftside';
 import Middleside from './Middleside/Middleside';
@@ -10,7 +10,9 @@ import Rightside from './Rightside/Rightside';
 import './Taskpage.css'
 
 
+
 const Taskpage = ({updateSignedIn, updatePath}) => {
+  
 
   return (
     <div className="container">
