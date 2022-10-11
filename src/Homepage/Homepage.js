@@ -6,7 +6,7 @@ import Choisedotask from './Components/Choisedotask/Choisedotask';
 //import './Homepage.css'
 
 
-const Taskpage = ({updatePath}) => {
+const Homepage = ({updatePath}) => {
 
 
   return (
@@ -16,4 +16,4 @@ const Taskpage = ({updatePath}) => {
   );
 }
 
-export default Taskpage;
+export default Homepage;

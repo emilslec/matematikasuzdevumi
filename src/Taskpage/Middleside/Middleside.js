@@ -8,13 +8,13 @@ import './Middlepage.css'
 
 
 const Middleside = ({activeTheme, updateActiveTheme, activeTaskName, updateActiveTaskName}) => {
-  const taskEx = ["theme", "path??", "task", "answer"]
+  const taskEx = ["theme", "path??", "Cik daudz zēnu ir pagrabā?", "4"]
 
 
   return (
     <div>
      <Taskheader theme={activeTaskName} path={activeTheme}/>
-      <Taskfield task={activeTaskName}/>
+      <Taskfield task={taskEx[2]}/>
       <Answerfield updateActiveTaskName={updateActiveTaskName} answer={taskEx[3]}/>
     </div>
   );

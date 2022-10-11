@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import Homepage from './Homepage/Homepage';
 import Signinpage from './Signinpage/Signinpage';
 import Taskpage from './Taskpage/Taskpage';
+import Basepage from './Basepage/Basepage'
 
 
 import './App.css';
@@ -23,6 +24,9 @@ const App = () => {
       }
       {
         path==='task' && <Taskpage className="signinp" updatePath={updatePath} updateSignedIn={updateSignedIn}/>
+      }
+      {
+        path==='base' && <Basepage updatePath={updatePath} updateSignedIn={updateSignedIn}/>
       }
     </div>
 }
