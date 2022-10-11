@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Leftside from './Leftside/Leftside';
 import Middleside from './Middleside/Middleside';
@@ -12,15 +12,16 @@ import './Taskpage.css'
 
 
 const Taskpage = ({updateSignedIn, updatePath}) => {
-  
+  const [activeTheme, updateActiveTheme] = useState('');
+  const [activeTaskName, updateActiveTaskName] = useState('');
 
   return (
     <div className="container">
         <div className=" ">
-          <Leftside />
+          <Leftside activeTheme={activeTheme} updateActiveTheme={updateActiveTheme} updateActiveTaskName={updateActiveTaskName}/>
         </div>
         <div className=" pa2">
-          <Middleside />
+          <Middleside activeTheme={activeTheme} activeTaskName={activeTaskName} updateActiveTaskName={updateActiveTaskName} updateActiveTheme={updateActiveTheme}/>
         </div>
         <div className=" pa2">
           <Rightside updateSignedIn={updateSignedIn} updatePath={updatePath}/>

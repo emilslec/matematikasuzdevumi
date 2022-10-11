@@ -25,35 +25,32 @@ const Searchtask = ({updateActiveTheme}) => {
        <label id="nnn" className="nnn center f3 fw6 ph0 mh0 ">Meklēt tēmas :</label >
        
        <div id="aa">
-       <input 
-       id="aa"
-          onChange={(field)=> updateSearchField(field.target.value)}
-          onClick={()=>updateShowBar(true)}
-          className="mt3 w-100 input-reset ba b--black-20 pa2  db "
-          type="text"
-          aria-describedby="name-desc">
-        </input>
-        
-          <div className=" c absolute w-100 bg-yellow ph1">
-          { showBar ?
-            themes.flat().filter(theme => {
-              return theme.toLowerCase().startsWith(searchField.toLowerCase())&&searchField
-            })
-            .map((theme, i) => {
-                return (
-                    <Searchblock 
-                      updateActiveTheme={updateActiveTheme}
-                      key={i} 
-                      theme={theme}
-                      updateShowBar={updateShowBar}
-                    />
-                );
+         <input 
+         id="aa"
+            onChange={(field)=> updateSearchField(field.target.value)}
+            onClick={()=>updateShowBar(true)}
+            className="mt3 w-100 input-reset ba b--black-20 pa2  db "
+            type="text"
+            aria-describedby="name-desc">
+          </input>
+          
+            <div className="c o-90 absolute w-100 bg-yellow ph1">
+            { showBar &&
+              themes.flat().filter(theme => {
+                return theme.toLowerCase().startsWith(searchField.toLowerCase())&&searchField
               })
-              :
-              ""
-          }
-        
-        </div>
+              .map((theme, i) => {
+                  return (
+                      <Searchblock 
+                        updateActiveTheme={updateActiveTheme}
+                        key={i} 
+                        theme={theme}
+                        updateShowBar={updateShowBar}
+                      />
+                  );
+                })
+            }
+          </div>
         </div>
     </div>
   )

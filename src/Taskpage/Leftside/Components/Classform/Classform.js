@@ -6,13 +6,13 @@ const Classform = ({classs, themes, updateActiveTheme}) => {
   const [show, updateShow] = useState(false);
   return (
 	  <div className="mt4">
-      <h3 onClick={() => updateShow(!show) } className="f4 b db mb2 mh4   blue">{classs}. Klase</h3>
+      <h3 onClick={() => updateShow(!show) } className="f4 b di mb2 mh4 pointer  blue">{classs}. Klase</h3>
       {show &&
         <ol className="">
         {themes.map((theme, i) => {
               return (
                   <li
-                    className="w-10"
+                    className=""
                      key={i}
                      onClick={()=> updateActiveTheme(theme)}
                   >
@@ -26,8 +26,6 @@ const Classform = ({classs, themes, updateActiveTheme}) => {
       }
     </div>
 	)
-
 }
-
 
 export default Classform

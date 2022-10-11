@@ -2,26 +2,22 @@ import React from 'react';
 import Taskfield from './Components/Taskfield/Taskfield';
 import Taskheader from './Components/Taskheader/Taskheader';
 import Answerfield from './Components/Answerfield/Answerfield';
-import Submitanswer from './Components/Submitanswer/Submitanswer';
-import Showanswer from './Components/Showanswer/Showanswer';
 
 
 import './Middlepage.css'
 
 
-const Leftside = () => {
+const Middleside = ({activeTheme, updateActiveTheme, activeTaskName, updateActiveTaskName}) => {
+  const taskEx = ["theme", "path??", "task", "answer"]
+
 
   return (
     <div>
-     <Taskheader />
-      <Taskfield />
-      <div className="container2">
-        <Answerfield />
-        <Submitanswer />
-        <Showanswer />
-      </div>
+     <Taskheader theme={activeTaskName} path={activeTheme}/>
+      <Taskfield task={activeTaskName}/>
+      <Answerfield updateActiveTaskName={updateActiveTaskName} answer={taskEx[3]}/>
     </div>
   );
 }
 
-export default Leftside;
+export default Middleside;

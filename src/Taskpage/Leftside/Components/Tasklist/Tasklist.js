@@ -3,7 +3,7 @@ import Classform from '../Classform/Classform';
 import Activetasks from '../Activetasks/Activetasks';
 
 
-const Tasklist = ({activeTheme, updateActiveTheme}) => {
+const Tasklist = ({activeTheme, updateActiveTheme, updateActiveTaskName}) => {
 
   const classes = [1,2,3,4];
   const themes= [["abols", "maize", "fortnite", "pupg mobile"], ["janis", "pecha", "fortnite", "pupg mobile"], ["aaa"], ["ijust dont know mens", 'hahaha']];
@@ -26,7 +26,7 @@ const Tasklist = ({activeTheme, updateActiveTheme}) => {
         }
         </div>
         <div className="w-50">
-          <Activetasks activeTheme={activeTheme}/>
+          <Activetasks activeTheme={activeTheme} updateActiveTaskName={updateActiveTaskName}/>
         </div>
     </div>
   );
