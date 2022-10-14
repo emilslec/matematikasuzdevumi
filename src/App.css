@@ -21,3 +21,7 @@
    grid-column-end: 3;
    //justify-self:  center;
 }
+
+textarea {
+  resize: none;
+}

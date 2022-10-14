@@ -3,13 +3,24 @@ import Classform from '../Classform/Classform';
 import Activetasks from '../Activetasks/Activetasks';
 
 
-const Tasklist = ({activeTheme, updateActiveTheme, updateActiveTaskName}) => {
+const Tasklist = ({activeTheme, updateActiveTheme, updateActiveTaskName, themes}) => {
 
-  const classes = [1,2,3,4];
-  const themes= [["abols", "maize", "fortnite", "pupg mobile"], ["janis", "pecha", "fortnite", "pupg mobile"], ["aaa"], ["ijust dont know mens", 'hahaha']];
+
+  const classes = [1,2,3,4, 5, 6, 7, 8, 9, 10 ,11, 12];
   
-  
-  
+  const FindThemes = (int) => {
+    if(!themes){
+      return [];
+    }
+    let thm = [];
+    themes.forEach((theme) => {
+      if(theme.theme_class === int) {
+        thm.push(theme.theme_name)
+      }
+    })
+    return thm;
+  } 
+
     return(
       <div className="flex">
         <div className="w-50">
@@ -19,7 +30,7 @@ const Tasklist = ({activeTheme, updateActiveTheme, updateActiveTaskName}) => {
                   <Classform key={i} 
                     classs={classs} 
                     updateActiveTheme={updateActiveTheme}
-                    themes={themes[i]}
+                    themes={FindThemes(i+1)}
                   />
               );
             })

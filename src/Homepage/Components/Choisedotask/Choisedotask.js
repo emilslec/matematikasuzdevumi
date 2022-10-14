@@ -13,18 +13,20 @@ const Choicedotask = ({updatePath}) => {
       </div>
       <div className="f5 f4-m f3-l fw2  black-50 mv3 lh-copy">
         <input
-           className="pa3 b--dark-blue ph6 br1 input-reset ba bg-transparent tc  b--grey"
+           onClick={()=> updatePath('task')}
+           className="pa3 b--dark-blue ph6 br1 ba bg-transparent tc  b--grey"
            type="submit"
            value="    Sākt pildīt uzdevumus    "
-           onClick={()=> updatePath('task')}>
+          >
         </input>
       </div>
       <div className="f5  f4-m  f3-l fw2  black-50 mv3 lh-copy">
         <input
-           className="pa3 b--dark-blue br1 center ph6 input-reset ba bg-transparent tc  b--grey"
-           type="submit"
+           onClick={()=> updatePath('base')}
+           className="pa3 b--dark-blue br1 center ph6  ba bg-transparent tc  b--grey"
+           type="button"
            value="Pievienot savus uzdevumus"
-           onClick={()=> updatePath('base')}>
+           >
         </input>
       </div>
     </div>

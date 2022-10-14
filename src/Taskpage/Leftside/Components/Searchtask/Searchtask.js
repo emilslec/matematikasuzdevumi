@@ -5,19 +5,24 @@ import Searchblock from '../Searchblock/Searchblock';
 
 import './Searchtask.css'
 
-const Searchtask = ({updateActiveTheme}) => {
+const Searchtask = ({updateActiveTheme, themes}) => {
 
-  const themes= [["abols", "maize", "fortnite", "pupg mobile"], ["janis", "pecha", "fortnite", "pupg mobile"], ["aaa"], ["ijust dont know mens", 'hahaha']];
-  
   const [searchField, updateSearchField] = useState('');
   const [showBar, updateShowBar] = useState(true);
 
+  document.addEventListener('click', function handleClickOutsideBox(event) {
+  if(event.target.id==='aa'){
+    updateShowBar(true)
+  }
+  else{updateShowBar(false)} });
 
-    document.addEventListener('click', function handleClickOutsideBox(event) {
-    if(event.target.id==='aa'){
-      updateShowBar(true)
-    }
-    else{updateShowBar(false)} });
+  const getThemes = () => {
+    let arr = [];
+    themes.forEach((theme) => {
+      arr.push(theme.theme_name)
+    })
+    return arr;
+  }
     
 
   return (
@@ -36,7 +41,7 @@ const Searchtask = ({updateActiveTheme}) => {
           
             <div className="c o-90 absolute w-100 bg-yellow ph1">
             { showBar &&
-              themes.flat().filter(theme => {
+              getThemes().filter(theme => {
                 return theme.toLowerCase().startsWith(searchField.toLowerCase())&&searchField
               })
               .map((theme, i) => {
