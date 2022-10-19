@@ -1,17 +1,15 @@
 import React from 'react';
 //import './Classform.css'
 
-const Classform = ({activeTheme, updateActiveTaskName}) => {
+const Activetasks = ({activeTheme, tasks, updateActiveTask}) => {
 
   return (
 	  <div className="mt4  ">
-      <h3 className="f4 b db mb2 mh4 red">{activeTheme}</h3>
-      
+      <h3 className="f4 b db mb2 mh4 red">{activeTheme[0]}</h3>
       <ul className="list ">
-        <li onClick={() => updateActiveTaskName('task1')}>task1</li>
-        <li onClick={() => updateActiveTaskName('task2')}>task 2</li>
-        <li>task 3</li>
-        <li>Golf balls</li>
+        { tasks.map((task, i)=>{
+        return <li key={i} onClick={() => updateActiveTask(task)}>{task.task_name}</li>})
+        }
       </ul>
       
 
@@ -21,4 +19,4 @@ const Classform = ({activeTheme, updateActiveTaskName}) => {
 }
 
 
-export default Classform
+export default Activetasks

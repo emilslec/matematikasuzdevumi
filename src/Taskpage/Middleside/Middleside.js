@@ -7,15 +7,14 @@ import Answerfield from './Components/Answerfield/Answerfield';
 import './Middlepage.css'
 
 
-const Middleside = ({activeTheme, updateActiveTheme, activeTaskName, updateActiveTaskName}) => {
-  const taskEx = ["theme", "path??", "Cik daudz zēnu ir pagrabā?", "4"]
+const Middleside = ({activeTheme,tasks, updateActiveTheme, activeTask, updateActiveTask}) => {
 
 
   return (
     <div>
-     <Taskheader theme={activeTaskName} path={activeTheme}/>
-      <Taskfield task={taskEx[2]}/>
-      <Answerfield updateActiveTaskName={updateActiveTaskName} answer={taskEx[3]}/>
+     <Taskheader theme={activeTask.task_name} path={activeTheme}/>
+      <Taskfield task={activeTask.task_text}/>
+      <Answerfield tasks={tasks} updateActiveTask={updateActiveTask} activeTask={activeTask}/>
     </div>
   );
 }

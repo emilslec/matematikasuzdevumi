@@ -5,10 +5,7 @@ const Taskinput = ({taskId}) => {
   const [taskName, updateTaskName] = useState('');
   const [taskText, updateTaskText] = useState('');
   const [taskAnswer, updateTaskAnswer] = useState('');
-
-  
-
-
+  const [submitStatus, updateSubmitStatus] = useState('pending');
 
   const SendTask = (a) => {
     a.preventDefault();
@@ -20,10 +17,19 @@ const Taskinput = ({taskId}) => {
           text: taskText,
           answer: taskAnswer,
           theme: taskId
-        })
+        })})
+    .then(response => response.json())
+    .then(task => {
+      if(task.task_id){
+        updateSubmitStatus('right')
+      }
+      else if (!task.task_id){
+        updateSubmitStatus('wrong')
+        console.log(submitStatus)
+      }
     })
-    .catch(err => console.log(err))
   }
+  
 
   return (   
     <div className="ma4    inpt">
@@ -66,7 +72,17 @@ const Taskinput = ({taskId}) => {
               value="Pievienot uzdevumu">
             </input> 
           </form>
-        
+          {submitStatus==='right' &&
+           <div>
+              <h1 className="center  fw6 ph0 mh0 green">Uzdevums veiksmīgi pievienots</h1>
+            </div>
+          }
+          {submitStatus==='wrong' && 
+          <div>
+            <h1 className="center  fw6 ph0 mh0 red">Kāda no vērtībām trūkst</h1>
+          </div>
+          }
+          
       </div>
         
       

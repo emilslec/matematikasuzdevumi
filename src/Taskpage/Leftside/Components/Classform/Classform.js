@@ -16,7 +16,7 @@ const Classform = ({classs, themes, updateActiveTheme}) => {
                      key={i}
                      onClick={()=> updateActiveTheme(theme)}
                   >
-                     {theme} 
+                     {theme[0]} 
                   </li>
               );
             })

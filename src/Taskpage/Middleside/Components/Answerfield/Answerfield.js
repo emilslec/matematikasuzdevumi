@@ -1,18 +1,26 @@
 import React, {useState} from 'react';
 import './Answerfield.css';
 
-const Answerfield = ({answer, updateActiveTaskName}) => {
+const Answerfield = ({activeTask,tasks, updateActiveTask}) => {
 
   const [answerInput, updateAnswerInput] = useState('');
   const [answerStatus, updateAnswerStatus] = useState('pending');
 
   const CheckAnswer = () => {
-    if (answerInput===answer){
+    if (answerInput===activeTask.task_answer){
         updateAnswerStatus('right')
       }
     else {
       updateAnswerStatus('wrong')
     }
+  }
+
+  const NextTask = (activeId) => {
+    tasks.forEach((task, i) => {
+      if (task.task_id===activeId&&tasks[i+1]){
+        updateActiveTask(tasks[i+1])
+      }
+    })
   }
 
   return (
@@ -58,11 +66,11 @@ const Answerfield = ({answer, updateActiveTaskName}) => {
           }
           {answerStatus==='show' && 
             <div>
-              <h2 className="center  fw6 ph0 mh0 ">Atbilde :  {answer}</h2>
+              <h2 className="center  fw6 ph0 mh0 ">Atbilde :  {activeTask.task_answer}</h2>
             </div>
           }
           <input 
-              onClick={()=>{updateActiveTaskName('next one'); updateAnswerStatus('pending')}}
+              onClick={()=>{NextTask(activeTask.task_id); updateAnswerStatus('pending')}}
               className="absolute bot mt4 fr  b br3 ph3 pv2 db input-reset  ba b--gray bg-transparent pointer  f6 " 
               type="submit" 
               value="Nākamais uzd">

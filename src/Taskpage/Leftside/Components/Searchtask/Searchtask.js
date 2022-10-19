@@ -19,7 +19,7 @@ const Searchtask = ({updateActiveTheme, themes}) => {
   const getThemes = () => {
     let arr = [];
     themes.forEach((theme) => {
-      arr.push(theme.theme_name)
+      arr.push([theme.theme_name, theme.theme_id])
     })
     return arr;
   }
@@ -42,7 +42,7 @@ const Searchtask = ({updateActiveTheme, themes}) => {
             <div className="c o-90 absolute w-100 bg-yellow ph1">
             { showBar &&
               getThemes().filter(theme => {
-                return theme.toLowerCase().startsWith(searchField.toLowerCase())&&searchField
+                return theme[0].toLowerCase().startsWith(searchField.toLowerCase())&&searchField
               })
               .map((theme, i) => {
                   return (

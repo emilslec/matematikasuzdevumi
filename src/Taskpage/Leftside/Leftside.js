@@ -5,7 +5,7 @@ import Profile from './Components/Profile/Profile';
 
 
 
-const Leftside = ({activeTheme, updateActiveTheme, updateActiveTaskName}) => {
+const Leftside = ({activeTheme, updateActiveTheme, updateActiveTask, tasks}) => {
 
   const [themes, updateThemes] = useState([]);
 
@@ -14,12 +14,12 @@ const Leftside = ({activeTheme, updateActiveTheme, updateActiveTaskName}) => {
     .then(response => response.json())
     .then(themess => updateThemes(themess))
   },[]);
-
+  
   return (
     <div className="br flex flex-column">
      	<Profile />
      	<Searchtask themes={themes} updateActiveTheme={updateActiveTheme}/>
-    	<Tasklist themes={themes} updateActiveTaskName={updateActiveTaskName} activeTheme={activeTheme} updateActiveTheme={updateActiveTheme}/>
+    	<Tasklist themes={themes} tasks={tasks} updateActiveTask={updateActiveTask} activeTheme={activeTheme} updateActiveTheme={updateActiveTheme}/>
     </div>
   );
 }

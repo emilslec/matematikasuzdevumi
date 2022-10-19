@@ -9,7 +9,7 @@ import Buttons from './Components/Buttons';
 
 const Basepage = ({updatePath, updateSignedIn}) => {
 
-  const [taskId, updateTaskId] = useState('');
+  const [taskId, updateTaskId] = useState(0);
 
   return (
     <div className="flex">
