@@ -7,16 +7,10 @@ const Tasklist = ({activeTheme, updateActiveTheme, tasks, updateActiveTask, them
   const classes = [1,2,3,4, 5, 6, 7, 8, 9, 10 ,11, 12];
   
   const FindThemes = (int) => {
-    if(!themes){
-      return [];
-    }
-    let thm = [];
-    themes.forEach((theme) => {
-      if(theme.theme_class === int) {
-        thm.push([theme.theme_name, theme.theme_id])
-      }
+    return themes.filter((theme) => {
+      return theme.theme_class===int 
     })
-    return thm;
+    
   } 
     return(
       <div className="flex">
@@ -27,7 +21,7 @@ const Tasklist = ({activeTheme, updateActiveTheme, tasks, updateActiveTask, them
                   <Classform key={i} 
                     classs={classs} 
                     updateActiveTheme={updateActiveTheme}
-                    themes={FindThemes(i+1)}
+                    themes={FindThemes(classs)}
                   />
               );
             })

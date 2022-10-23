@@ -16,15 +16,6 @@ const Searchtask = ({updateActiveTheme, themes}) => {
   }
   else{updateShowBar(false)} });
 
-  const getThemes = () => {
-    let arr = [];
-    themes.forEach((theme) => {
-      arr.push([theme.theme_name, theme.theme_id])
-    })
-    return arr;
-  }
-    
-
   return (
     <div className="tc center mt4 measure relative">
        <label id="nnn" className="nnn center f3 fw6 ph0 mh0 ">Meklēt tēmas :</label >
@@ -41,8 +32,8 @@ const Searchtask = ({updateActiveTheme, themes}) => {
           
             <div className="c o-90 absolute w-100 bg-yellow ph1">
             { showBar &&
-              getThemes().filter(theme => {
-                return theme[0].toLowerCase().startsWith(searchField.toLowerCase())&&searchField
+              themes.filter(theme => {
+                return theme.theme_name.toLowerCase().startsWith(searchField.toLowerCase())&&searchField
               })
               .map((theme, i) => {
                   return (

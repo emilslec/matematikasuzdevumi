@@ -4,6 +4,7 @@ import './Classform.css'
 const Classform = ({classs, themes, updateActiveTheme}) => {
 
   const [show, updateShow] = useState(false);
+
   return (
 	  <div className="mt4">
       <h3 onClick={() => updateShow(!show) } className="f4 b di mb2 mh4 pointer  blue">{classs}. Klase</h3>
@@ -16,7 +17,7 @@ const Classform = ({classs, themes, updateActiveTheme}) => {
                      key={i}
                      onClick={()=> updateActiveTheme(theme)}
                   >
-                     {theme[0]} 
+                     {theme.theme_name} 
                   </li>
               );
             })

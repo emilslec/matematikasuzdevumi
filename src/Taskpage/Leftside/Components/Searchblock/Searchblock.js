@@ -3,14 +3,12 @@ import React from 'react';
 
 const Searchblock = ({theme, updateActiveTheme, updateShowBar}) => {
 
-  console.log(theme)
   return (
     <div 
-      
       onClick={()=>{ updateActiveTheme(theme); updateShowBar(false)}}
       className="ba  pv1 b--black-50 mv1"
     >
-      {theme[0]}
+      {theme.theme_name}
       
     </div>
   )

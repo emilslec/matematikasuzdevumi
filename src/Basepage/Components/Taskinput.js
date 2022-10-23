@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 
 
-const Taskinput = ({taskId}) => {
+const Taskinput = ({taskId,updateUser, user}) => {
+
   const [taskName, updateTaskName] = useState('');
   const [taskText, updateTaskText] = useState('');
   const [taskAnswer, updateTaskAnswer] = useState('');
   const [submitStatus, updateSubmitStatus] = useState('pending');
 
+console.log(user.email)
   const SendTask = (a) => {
     a.preventDefault();
     fetch('http://localhost:3000/addt/', {
@@ -16,30 +18,28 @@ const Taskinput = ({taskId}) => {
           name: taskName,
           text: taskText,
           answer: taskAnswer,
-          theme: taskId
+          theme: taskId,
+          email: user.email
         })})
     .then(response => response.json())
     .then(task => {
-      if(task.task_id){
-        updateSubmitStatus('right')
+      if(task.tasks_added){
+        updateSubmitStatus('right');
+        updateUser({...user, tasks_added: task.tasks_added})
       }
       else if (!task.task_id){
         updateSubmitStatus('wrong')
-        console.log(submitStatus)
       }
     })
   }
   
 
   return (   
-    <div className="ma4    inpt">
-    <section className="w-70 ma2 mw5 ba b--black-10 mw6-ns br3 mv4">
-      <div className="pa3">
-        
-          Receding city franchise engine augmented reality semiotics bomb courier order-flow dissident-space. Sub-orbital engine range-rover systema warehouse bridge assassin sign Kowloon modem RAF tattoo faded cardboard digital bicycl
-          
-        
-      </div>
+    <div className="ma4  pl4  inpt">
+    <section className="w-70 pa3 f5  ma2 mw5 ba b--black-10 mw6-ns br3 mv4">
+      <p>Šajā mājaslapas sadaļā var pievienot savus izdomātos uzdevumus, lai citi tos varētu pildīt.</p>
+      No sākuma aizpildi lejā redzamos laukus ar savu uzdevumu un pēc tam izvēlies pie kuras tēmas uzdevums piederas, tas arī viss
+    <h3> Uzdevumu pievienos ar epastu : {user.email}</h3>
     </section>
       <div className="">
         <form className="pa4 black-80">

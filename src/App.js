@@ -10,23 +10,22 @@ import './App.css';
 
 const App = () => {
 
-  const [signedIn, updateSignedIn] = useState(false);
+  const [user, updateUser] = useState("");
   const [path, updatePath] = useState('home');
-
-  return !signedIn ?
+  return !user ?
       <div className="signinp h-100">
-        <Signinpage updatePath={updatePath} updateSignedIn={updateSignedIn}/>
+        <Signinpage updatePath={updatePath} updateUser={updateUser}/>
       </div> 
     :
     <div className="homep h-100">
       {
-        path==='home' && <Homepage updatePath={updatePath}/>
+        path==='home' && <Homepage user={user} updatePath={updatePath}/>
       }
       {
-        path==='task' && <Taskpage className="signinp" updatePath={updatePath} updateSignedIn={updateSignedIn}/>
+        path==='task' && <Taskpage  user={user} className="signinp" updatePath={updatePath} updateUser={updateUser}/>
       }
       {
-        path==='base' && <Basepage updatePath={updatePath} updateSignedIn={updateSignedIn}/>
+        path==='base' && <Basepage user={user} updatePath={updatePath} updateUser={updateUser}/>
       }
     </div>
 }

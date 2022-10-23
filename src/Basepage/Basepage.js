@@ -7,7 +7,7 @@ import Buttons from './Components/Buttons';
 //import './Homepage.css'
 
 
-const Basepage = ({updatePath, updateSignedIn}) => {
+const Basepage = ({updatePath,user,updateUser, email}) => {
 
   const [taskId, updateTaskId] = useState(0);
 
@@ -15,14 +15,14 @@ const Basepage = ({updatePath, updateSignedIn}) => {
     <div className="flex">
       <div className="flex h6 w-70">
         <div className="w-70">
-          <Taskinput taskId={taskId}/>
+          <Taskinput user={user} updateUser={updateUser} taskId={taskId}/>
         </div>
         <div className="mt5">
           <Themeselection taskId={taskId} updateTaskId={updateTaskId}/>
         </div>
       </div>
       <div className="w-30">
-        <Buttons updatePath={updatePath} updateSignedIn={updateSignedIn}/>
+        <Buttons updatePath={updatePath} updateUser={updateUser}/>
       </div>
     </div>
   );

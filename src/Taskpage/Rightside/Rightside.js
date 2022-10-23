@@ -1,15 +1,13 @@
 import React from 'react';
-import Signoutbutton from './Components/Signoutbutton/Signoutbutton';
 import Homebutton from './Components/Homebutton/Homebutton';
 
 
 
-const Rightside = ({updateSignedIn, updatePath}) => {
+const Rightside = ({updateUser, updatePath}) => {
 
   return (
     <div >
-      <Signoutbutton updateSignedIn={updateSignedIn}/>
-      <Homebutton updatePath={updatePath}/>
+      <Homebutton updateUser={updateUser} updatePath={updatePath}/>
     </div>
   );
 }
