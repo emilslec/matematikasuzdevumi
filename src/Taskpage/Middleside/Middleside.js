@@ -12,8 +12,8 @@ const Middleside = ({activeTheme,tasks, updateUser, activeTask, updateActiveTask
 
   return (
     <div>
-     <Taskheader theme={activeTask.task_name} activeTheme={activeTheme}/>
-      <Taskfield task={activeTask.task_text}/>
+     <Taskheader activeTask={activeTask} activeTheme={activeTheme}/>
+      <Taskfield task={activeTask}/>
       <Answerfield tasks={tasks} updateUser={updateUser} user={user} updateActiveTask={updateActiveTask} activeTask={activeTask}/>
     </div>
   );

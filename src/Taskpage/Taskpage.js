@@ -15,15 +15,15 @@ const Taskpage = ({updateUser, updatePath, user}) => {
   const [activeTheme, updateActiveTheme] = useState(['Uzdevuma tēma', 0]);
   const [activeTask, updateActiveTask] = useState({task_name : 'uzdevuma nosaukums'});
   const [tasks, updateTasks] = useState([])
-
+  
   useEffect(() => {
     if (activeTheme[1]===0)return
     
-    fetch('http://localhost:3000/tasks', {
+    fetch('https://matematikasuzdevumiapi.herokuapp.com/tasks', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify ({
-        id: activeTheme.theme_id,
+        id: activeTheme.theme_id
       }),
     })
     .then(response => response.json())
@@ -33,7 +33,7 @@ const Taskpage = ({updateUser, updatePath, user}) => {
     return () => {
     }
   },[activeTheme]);
-console.log(tasks)
+
   return (
     <div className="container">
         <div className=" ">

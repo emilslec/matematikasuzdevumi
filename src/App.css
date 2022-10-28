@@ -1,8 +1,19 @@
+body {
+  background-color: #eef1dd  ;
+}
+
+.a {
+  background-color: #7E78D2 ;
+}
+
+.n {
+  background-color: #FF4A1C;
+}
 .homep {
   background-color: #EAAC8B ;
 }
 
-.signinp {
+body {
   background-image: url('./Signinpage/Components/Background/image.jpg');
   background-size: cover;
 }
@@ -19,7 +30,7 @@
       grid-column-start: 1;
 
    grid-column-end: 3;
-   //justify-self:  center;
+   
 }
 
 textarea {

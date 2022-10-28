@@ -6,12 +6,12 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const [taskName, updateTaskName] = useState('');
   const [taskText, updateTaskText] = useState('');
   const [taskAnswer, updateTaskAnswer] = useState('');
+  const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
 
-console.log(user.email)
   const SendTask = (a) => {
     a.preventDefault();
-    fetch('http://localhost:3000/addt/', {
+    fetch('https://matematikasuzdevumiapi.herokuapp.com/addtask', {
       method : 'post',
       headers : {'Content-type' : 'application/json'},
         body : JSON.stringify({
@@ -19,7 +19,8 @@ console.log(user.email)
           text: taskText,
           answer: taskAnswer,
           theme: taskId,
-          email: user.email
+          email: user.email,
+          level: taskLevel
         })})
     .then(response => response.json())
     .then(task => {
@@ -32,7 +33,6 @@ console.log(user.email)
       }
     })
   }
-  
 
   return (   
     <div className="ma4  pl4  inpt">
@@ -48,7 +48,8 @@ console.log(user.email)
           onChange={(field)=> updateTaskName(field.target.value)}
           className="mt3 w-60 br2 input-reset mb3 ba b--black-40 pa2 db "
           type="text"
-          aria-describedby="name-desc">
+          aria-describedby="name-desc"
+          placeholder="Nosaukums">
         </input>
         <label className="center f4 fw6 ph0 ">Uzdevums</label >
             <textarea 
@@ -65,13 +66,24 @@ console.log(user.email)
             type="text"
             aria-describedby="name-desc">
           </input>
+          <div>
+              <label className="center f4 fw6 ph0 mh0 ">Uzdevuma grūtības pakāpe skalā no 1 līdz </label >
+              <select onChange={(e)=>updateTaskLevel(e.target.value)} className="db w-50 f4 mt2" id="cars" name="cars">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
           <input 
               onClick={SendTask}
               className=" mt4 b br3 pa4 pv2 db input-reset  ba b--dark-red bg-transparent pointer  f4 " 
               type="submit" 
               value="Pievienot uzdevumu">
             </input> 
-          </form>
+            
+        </form>
           {submitStatus==='right' &&
            <div>
               <h1 className="center  fw6 ph0 mh0 green">Uzdevums veiksmīgi pievienots</h1>

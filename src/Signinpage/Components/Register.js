@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
+import { useNavigate  } from "react-router-dom";
 
 
-const Register = ({updatePath, updateSignedIn, updateStatus, status}) => {
+const Register = ({ updateSignedIn, }) => {
   const [email, updateEmail] = useState('');
   const [username, updateUsername] = useState('');
   const [password, updatePassword] = useState('');
+  const [status, updateStatus] = useState("")
 
+  let navigate = useNavigate();
 
   const submitRegister = (e) => {
     e.preventDefault();
     if(!email||!password||!username)return updateStatus(["register", "emt_fail"])
-    fetch('http://localhost:3000/register/', {
+    fetch('https://matematikasuzdevumiapi.herokuapp.com/register', {
       method: 'post',
       headers : {'Content-type' : 'application/json'},
         body : JSON.stringify({
@@ -22,7 +25,7 @@ const Register = ({updatePath, updateSignedIn, updateStatus, status}) => {
     .then(response => response.json())
     .then(res=> {
       if(res.email){
-        updateStatus(["signin", "success"]);
+       navigate("/");
       }
       if(res==="cant"){
         updateStatus(['register', "fail"])
@@ -74,7 +77,7 @@ const Register = ({updatePath, updateSignedIn, updateStatus, status}) => {
            <input className="w-30 fr mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
             type="button"
            value="Sign in"
-           onClick={()=>updateStatus(["signin", ""])}>
+           onClick={()=>navigate("/")}>
            </input>
         </div>
         {

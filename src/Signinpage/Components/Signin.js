@@ -1,15 +1,17 @@
-import React, {  useState} from 'react';
+import React, { useState} from 'react';
+import { Link, Navigate  } from "react-router-dom";
 
 
-const Signin = ({updatePath, updateUser, updateStatus, status}) => {
+const Signin = ({ updateUser, user}) => {
   const [email, updateEmail] = useState('');
   const [password, updatePassword] = useState('');
+  const [status, updateStatus] = useState("")
 
   const submitSignin = (e) => {
   if(!email||!password){ updateStatus(["signin","emt_fail"])}
 
   e.preventDefault();
-    fetch('http://localhost:3000/signin/', {
+    fetch('https://matematikasuzdevumiapi.herokuapp.com/signin', {
       method: 'post',
       headers : {'Content-type' : 'application/json'},
         body : JSON.stringify({
@@ -20,8 +22,8 @@ const Signin = ({updatePath, updateUser, updateStatus, status}) => {
     .then(response => response.json())
     .then(res=> {
       if(res.email){
-        updateUser(res); 
-        updatePath('home')
+        updateUser(res);
+
       }
       if(res==="fail"){
         updateStatus(["signin","cr_fail"])
@@ -29,7 +31,6 @@ const Signin = ({updatePath, updateUser, updateStatus, status}) => {
     })
     .catch(err=>console.log(err))
   }
-
   return (
     <main className="pa4 black-80">
       <form className="measure center">
@@ -52,30 +53,33 @@ const Signin = ({updatePath, updateUser, updateStatus, status}) => {
           <label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox"></input> Remember me</label>
         </fieldset>
         <div className="">
-          <input
-           className="w-30 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" 
-           value="Sign in"
-           onClick={submitSignin}></input>
+          <Link
+           
+           className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib"
+           onClick={submitSignin}
+           
+           >Sign in</Link>
+           {user.email && (
+          <Navigate to="/home" replace={true} />
+        )}
         </div>
         <div className="">
-          <input
-           className="w-30 mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit"
-           value="Register"
-           onClick={() => updateStatus(["register", ""])}>
-          </input>
+        <Link
+           className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib"
+           to="/register"
+           >Register</Link>
         </div>
         <div className="">
-          <input 
-           onClick={()=>{
-            updateUser("janka"); 
-            updatePath('home')}
+          <Link 
+          to="home"
+           onClick={()=>
+            updateUser("janka")
            }
-           className="w-30 mt3 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-           type="submit" 
-           value="Annonymus"></input>
+           className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib" 
+           >Anonīms</Link>
         </div>
         <div className="lh-copy mt3">
-          <a  className="pv2 f6 link dim black db">Forgot your password?</a>
+          <div  className="pv2 f6 link dim black db">Forgot your password?</div>
         </div>
         {
         status[1]==="success" &&

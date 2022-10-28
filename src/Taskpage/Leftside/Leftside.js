@@ -12,7 +12,7 @@ const Leftside = ({activeTheme, updateActiveTheme, updateActiveTask, tasks, user
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    fetch('http://localhost:3000/themes', { signal })
+    fetch('https://matematikasuzdevumiapi.herokuapp.com/themes', { signal })
     .then(response => response.json())
     .then(themess => updateThemes(themess))
     .catch(err => {

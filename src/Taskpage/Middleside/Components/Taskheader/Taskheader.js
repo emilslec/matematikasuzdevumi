@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const Taskheader = ({theme, activeTheme}) => {
+const Taskheader = ({activeTask, activeTheme}) => {
   return (
-    <div className="mt3 measure center">
-      <div className="f2 mb3 tc fw6 ph0 mh0">{theme}</div >
-      <div className="f4 fw6 ph0 mh0">{activeTheme.theme_name} - {activeTheme.theme_class}. Klase</div >
+    <div className="mt5 measure center">
+      <div className="f2 mb3 tc fw6 ph0 mh0">{activeTask.task_name}</div >
+      <div className="f4 fw6 ph0 mh0">{activeTheme.theme_name} -- {activeTheme.theme_class}. Klase</div >
     </div>
   )
 

@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {} from 'react';
+import {Route, Routes,  Outlet } from "react-router-dom";
 import Signin from './Components/Signin';
 import Register from './Components/Register';
 import Title from './Components/Title/Title';
@@ -6,34 +7,18 @@ import Title from './Components/Title/Title';
 import './Signinpage.css'
 
 
-const Signinpage = ({updatePath, updateUser}) => {
-
-  const [status, updateStatus] = useState(['signin',""])
+const Signinpage = ({user, updateUser}) => {
 
   return (
-    <div >
+    <div className="signinp">
       <Title />
-      {
-        status[0]==='signin' &&
-        <Signin
-         updatePath={updatePath} 
-         updateUser={updateUser}
-         updateStatus={updateStatus}
-         status={status}
-        />
-      }
-      {
-        status[0]==='register' && 
-        <Register 
-         updatePath={updatePath}
-         updateUser={updateUser}
-         updateStatus={updateStatus}
-         status={status}
-        /> 
-      }
-      
+      <Routes>
+          <Route path="*" element={<Signin user={user}  updateUser={updateUser}/>} />
+          <Route path="register" element={<Register updateUser={updateUser} /> }/>
+        </Routes>
+      <Outlet />
     </div>
-  );
+  )
 }
 
 export default Signinpage;

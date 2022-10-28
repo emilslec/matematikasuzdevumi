@@ -1,17 +1,17 @@
 import React,{} from 'react';
 
-import Choisedotask from './Components/Choisedotask/Choisedotask';
+import Choisedotask from './Components/Choisedotask';
 
 
-//import './Homepage.css'
+import './homepage.css'
 
 
-const Homepage = ({updatePath}) => {
+const Homepage = ({ user}) => {
 
 
   return (
     <div >
-      <Choisedotask updatePath={updatePath}/>
+      <Choisedotask  user={user} />
     </div>
   );
 }

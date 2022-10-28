@@ -12,7 +12,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
 
   const CheckAnswer = () => {
     if (answerInput===activeTask.task_answer){
-      fetch('http://localhost:3000/taskcorr', {
+      fetch('https://matematikasuzdevumiapi.herokuapp.com/taskpoint', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify ({
@@ -25,6 +25,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
       updateAnswerStatus('right')
     }
     else {
+      if (!activeTask.task_text) return
       updateAnswerStatus('wrong')
     }
   }
@@ -66,13 +67,15 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
               value="Iesniegt atbildi">
           </input>
           <input 
-              onClick={()=>updateAnswerStatus('show')}
+              onClick={()=>{if(activeTask.task_text){updateAnswerStatus('show')}}}
               className=" mt3 b ph3 pv2 db input-reset ba b--black bg-transparent pointer f6 " 
               type="submit" 
               disabled={ChecSho()}
               value="Parādīt atbildi">
           </input>
-        
+          {activeTask.user_email &&
+             <div>Uzdevumu pievienoja: {activeTask.user_email}</div>}
+          
         </div>
         <div className="w-50 relative h5">
           {answerStatus==='right' &&
