@@ -23,6 +23,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
       .then(compl => updateUser({...user,tasks_completed: compl}))
       .catch(err => console.log(err))
       updateAnswerStatus('right')
+      updateAnswerInput("");
     }
     else {
       if (!activeTask.task_text) return
@@ -55,6 +56,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
         <input 
           onChange={(e)=>updateAnswerInput(e.target.value)}
           disabled={ChecSho()}
+          value={answerInput}
           className="mt3  input-reset ba b--black-20 pa2  db "
           type="text"
           aria-describedby="name-desc">
