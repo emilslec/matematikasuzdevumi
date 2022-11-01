@@ -31,6 +31,14 @@ const Signin = ({ updateUser, user}) => {
     })
     .catch(err=>console.log(err))
   }
+
+  const passwordType = (e) => {
+    e.preventDefault()
+    const pwField = document.getElementById("password")
+    if(pwField.type==="password"){pwField.setAttribute("type", "text")}
+    else if (pwField.type==="text"){pwField.setAttribute("type", "password")}
+  }
+
   return (
     <main className="pa4 black-80">
       <form className="measure center">
@@ -46,18 +54,23 @@ const Signin = ({ updateUser, user}) => {
           <div className="mv3">
             <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
             <input 
-              onChange={(e)=> updatePassword(e.target.value)}
-              autoComplete="on"
-             className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--light-blue" type="password" name="password"  id="password"></input>
+            className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-70 b--light-blue" 
+            type="password"
+            id="password"
+            onChange={(e)=> updatePassword(e.target.value)}
+            autoComplete="on"
+            ></input>
+            <input className="w-25 fr  ph3 pv2 input-reset ba b--blsack bg-transparent grow pointer f6 dib" type="submit"
+           value="Show/ Hide "
+           onClick={(e)=>passwordType(e)}>
+           </input>
           </div>
           <label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox"></input> Remember me</label>
         </fieldset>
         <div className="">
           <Link
-           
            className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib"
            onClick={submitSignin}
-           
            >Sign in</Link>
            {user.email && (
           <Navigate to="/home" replace={true} />
@@ -71,12 +84,11 @@ const Signin = ({ updateUser, user}) => {
         </div>
         <div className="">
           <Link 
-          to="home"
+          to="/uzdevumi"
            onClick={()=>
-            updateUser("janka")
-           }
-           className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib" 
-           >Anonīms</Link>
+            updateUser("janka")}
+           className="w-70 mt5 link b ph3 pv2 input-reset center a tc ba b--black  grow pointer f4 db" 
+           >Pildīt uzdevumus bez reģistrēšanās</Link>
         </div>
         <div className="lh-copy mt3">
           <div  className="pv2 f6 link dim black db">Forgot your password?</div>

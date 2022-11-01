@@ -16,7 +16,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify ({
-        email: user.email,
+        email: user.email
       }),
       })
       .then(response => response.json())
@@ -106,7 +106,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
           }
           <input 
               onClick={()=>{updateAnswerStatus('pending');NextTask(activeTask.task_id) }}
-              className="absolute bot mt4 fr  b br3 ph3 pv2 db input-reset  ba b--gray bg-transparent pointer  f6 " 
+              className="absolute bot mt4 fr b br3 ph4 pv2 db input-reset  ba b--gray bg-transparent pointer  f6 " 
               type="submit" 
               value="Nākamais uzd">
           </input> 

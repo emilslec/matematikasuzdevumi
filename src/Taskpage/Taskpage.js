@@ -13,7 +13,7 @@ import './Taskpage.css'
 
 const Taskpage = ({updateUser, updatePath, user}) => {
   const [activeTheme, updateActiveTheme] = useState(['Uzdevuma tēma', 0]);
-  const [activeTask, updateActiveTask] = useState({task_name : 'uzdevuma nosaukums'});
+  const [activeTask, updateActiveTask] = useState({task_name : 'Uzdevuma nosaukums', task_text:'Uzdevums'});
   const [tasks, updateTasks] = useState([])
   
   useEffect(() => {

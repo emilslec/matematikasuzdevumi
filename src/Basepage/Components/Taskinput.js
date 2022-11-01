@@ -30,6 +30,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
       if(task.tasks_added){
         updateSubmitStatus('right');
         updateUser({...user, tasks_added: task.tasks_added})
+        updateTaskAnswer(""); updateTaskName(""); updateTaskText("");
       }
       else if (!task.task_id){
         updateSubmitStatus('wrong')
@@ -50,6 +51,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
         <input 
           onChange={(field)=> updateTaskName(field.target.value)}
           className="mt3 w-60 br2 input-reset mb3 ba b--black-40 pa2 db "
+          value={taskName}
           type="text"
           aria-describedby="name-desc"
           placeholder="Nosaukums">
@@ -58,16 +60,20 @@ const Taskinput = ({taskId,updateUser, user}) => {
             <textarea 
               onChange={(field)=> updateTaskText(field.target.value)}
               id="comment" 
-              name="comment" 
+              name="comment"
+              value={taskText}
               className="mt2 db border-box hover-black w-100 h4 measure ba b--black-20 pa2 br2 mb2"
-              aria-describedby="comment-desc">
+              aria-describedby="comment-desc"
+              placeholder="Teksts">
              </textarea>
             <label className="center f4 fw6 ph0 mh0 ">Uzdevuma atbilde</label >
           <input 
             onChange={(field)=> updateTaskAnswer(field.target.value)}
             className="mt3 w-60 br2 input-reset mb3 ba b--black-40 pa2 db "
             type="text"
-            aria-describedby="name-desc">
+            value={taskAnswer}
+            aria-describedby="name-desc"
+            placeholder="Atbilde">
           </input>
           <div>
               <label className="center f4 fw6 ph0 mh0 ">Uzdevuma grūtības pakāpe skalā no 1 līdz </label >

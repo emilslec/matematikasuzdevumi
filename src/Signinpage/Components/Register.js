@@ -34,6 +34,14 @@ const Register = ({ updateSignedIn, }) => {
     .catch(err=>console.log(err))
   }
 
+  const passwordType = (e) => {
+    e.preventDefault()
+    const pwField = document.getElementById("password")
+    if(pwField.type==="password"){pwField.setAttribute("type", "text")}
+    else if (pwField.type==="text"){pwField.setAttribute("type", "password")}
+
+  }
+
   return (
     <main className="pa4 black-80">
       <form className="measure center">
@@ -53,13 +61,17 @@ const Register = ({ updateSignedIn, }) => {
           <div className="mv3">
             <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
             <input 
-            className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--light-blue" 
-            type="password" 
+            className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-70 b--light-blue" 
+            type="password"
             name="password"  
             id="password"
             onChange={(e)=> updatePassword(e.target.value)}
             autoComplete="on"
             ></input>
+            <input className="w-25 fr  ph3 pv2 input-reset ba b--blsack bg-transparent grow pointer f6 dib" type="submit"
+           value="Show/ Hide "
+           onClick={(e)=>passwordType(e)}>
+           </input>
           </div>
           <div className="mt3">
             <label className="db fw6 lh-copy f6" htmlFor="email-address">Username</label>
