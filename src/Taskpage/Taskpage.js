@@ -43,7 +43,7 @@ const Taskpage = ({updateUser, updatePath, user}) => {
           <Middleside tasks={tasks} user={user} updateUser={updateUser} activeTheme={activeTheme} activeTask={activeTask} updateActiveTask={updateActiveTask} updateActiveTheme={updateActiveTheme}/>
         </div>
         <div className=" pa2">
-          <Rightside updateUser={updateUser} updatePath={updatePath}/>
+          <Rightside updateUser={updateUser} user={user}/>
         </div>
     </div>
 

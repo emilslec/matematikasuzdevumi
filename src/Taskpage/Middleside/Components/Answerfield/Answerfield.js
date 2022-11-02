@@ -76,7 +76,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
               value="Parādīt atbildi">
           </input>
           {activeTask.user_email &&
-             <div>Uzdevumu pievienoja: {activeTask.user_email}</div>}
+             <div className='mt2'>Uzdevumu pievienoja: {activeTask.user_email}</div>}
           
         </div>
         <div className="w-50 relative h5">

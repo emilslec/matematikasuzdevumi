@@ -76,7 +76,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
             placeholder="Atbilde">
           </input>
           <div>
-              <label className="center f4 fw6 ph0 mh0 ">Uzdevuma grūtības pakāpe skalā no 1 līdz </label >
+              <label className="center f4 fw6 ph0 mh0 ">Uzdevuma grūtības pakāpe skalā no 1 līdz 5</label >
               <select onChange={(e)=>updateTaskLevel(e.target.value)} className="db w-50 f4 mt2" id="cars" name="cars">
                 <option value="1">1</option>
                 <option value="2">2</option>

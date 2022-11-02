@@ -3,11 +3,11 @@ import Homebutton from './Components/Homebutton/Homebutton';
 
 
 
-const Rightside = ({updateUser, updatePath}) => {
+const Rightside = ({updateUser, user}) => {
 
   return (
     <div >
-      <Homebutton updateUser={updateUser} updatePath={updatePath}/>
+      <Homebutton updateUser={updateUser} user={user}/>
     </div>
   );
 }
