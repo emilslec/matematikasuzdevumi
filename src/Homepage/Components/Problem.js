@@ -42,10 +42,12 @@ console.log(hasProblem)
           value={problemName}
           className="mv3 ml3 input-reset ba bg-light-blue pa2 db "
           type="text"
+          autoComplete='off'
           aria-describedby="name-desc">
         </input>
         <label id="problem" className="ml4 ">Problēmas apraksts</label>
           <input  id="problem"
+          autoComplete='off'
           onChange={(e)=>updateProblemDescription(e.target.value)}
           value={problemDescription}
           placeholder="Problēmas apraksts"
