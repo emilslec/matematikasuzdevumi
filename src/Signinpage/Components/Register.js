@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate  } from "react-router-dom";
 
 
-const Register = ({ updateSignedIn, }) => {
+const Register = () => {
   const [email, updateEmail] = useState('');
   const [username, updateUsername] = useState('');
   const [password, updatePassword] = useState('');
@@ -12,7 +12,12 @@ const Register = ({ updateSignedIn, }) => {
 
   const submitRegister = (e) => {
     e.preventDefault();
-    if(!email||!password||!username)return updateStatus(["register", "emt_fail"])
+    const passwordRegex = new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$')
+    const emailRegex = new RegExp('[^@]+@[^@]+.[^@]+')
+
+    if(!username)return updateStatus("emt_fail")
+    if(!emailRegex.test(email)) return updateStatus("email_fail")
+    if(!passwordRegex.test(password)) return updateStatus("password_fail")
     fetch('https://matematikasuzdevumiapi.herokuapp.com/register', {
       method: 'post',
       headers : {'Content-type' : 'application/json'},
@@ -28,7 +33,7 @@ const Register = ({ updateSignedIn, }) => {
        navigate("/");
       }
       if(res==="cant"){
-        updateStatus(['register', "fail"])
+        updateStatus("fail")
       }
     })
     .catch(err=>console.log(err))
@@ -93,15 +98,27 @@ const Register = ({ updateSignedIn, }) => {
            </input>
         </div>
         {
-        status[1]==="fail" &&
+        status==="fail" &&
           <div className="mt2">
-            <label className="center f4 fw6 ph0  mh0 ">Epasta adrese jau ir izmantota, login!</label >
+            <label className="center f4 fw6 ph0  mh0 ">Epasta adrese jau ir reģistrēta!</label >
           </div>
         }
         {
-        status[1]==="emt_fail" &&
+        status==="emt_fail" &&
           <div className="mt2">
             <label className="center f4 fw6 ph0  mh0 ">Visi lauki nav aizpildīti</label >
+          </div>
+        }
+        {
+        status==="email_fail" &&
+          <div className="mt2">
+            <label className="center f4 fw6 ph0  mh0 ">Epasts nepareizi ievadīts</label >
+          </div>
+        }
+        {
+        status==="password_fail" &&
+          <div className="mt2">
+            <label className="center f4 fw6 ph0  mh0 ">Parole nav vismaz 8 rakstzīmes vai neiekļauj vismaz vienu lielo un mazo burtu</label >
           </div>
         }
       </form>

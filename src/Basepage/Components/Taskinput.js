@@ -33,7 +33,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
         updateTaskAnswer(""); updateTaskName(""); updateTaskText("");
       }
       else if (!task.task_id){
-        updateSubmitStatus('wrong')
+        updateSubmitStatus('db')
       }
     })
   }
@@ -101,6 +101,11 @@ const Taskinput = ({taskId,updateUser, user}) => {
           {submitStatus==='wrong' && 
           <div>
             <h1 className="center  fw6 ph0 mh0 red">Kāda no vērtībām trūkst</h1>
+          </div>
+          }
+          {submitStatus==='db' && 
+          <div>
+            <h1 className="center  fw6 ph0 mh0 red">Problēma ar datubāzi</h1>
           </div>
           }
           
