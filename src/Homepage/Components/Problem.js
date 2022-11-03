@@ -5,14 +5,16 @@ const Problem = () => {
     const [hasProblem, updateHasProblem] = useState(false);
     const [problemName, updateProblemName] = useState("");
     const [problemDescription, updateProblemDescription] = useState("");
-    
+    const [problemStatus, updateProblemStatus] = useState("");
+
     
     document.addEventListener('click', function handleClickOutsideBox(event) {
       if(event.target.id==='problem')return
-      updateHasProblem(false)})
+      updateHasProblem(false)
+      updateProblemStatus("")})
     
       const submitProblem = () => {
-        if(!problemDescription||!problemName){return}
+        if(!problemDescription||!problemName){return updateProblemStatus("credital")}
         fetch('https://matematikasuzdevumiapi.herokuapp.com/problem', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
@@ -21,19 +23,19 @@ const Problem = () => {
         description: problemDescription
       })})
       .then(resp=> resp.json())
-      .then(naim=>{ 
-        if(naim.problem_name){
-          updateHasProblem(false)
+      .then(res=>{ 
+        if(res.problem_name){
+          updateProblemStatus("success")
+          setTimeout(()=>
+          updateHasProblem(false), 2000)
           updateProblemDescription("")
           updateProblemName("")
         }
-      else console.log("idiiot")})
+      else {updateProblemStatus("db")}})
     }
-    
-console.log(hasProblem)
   return( 
         hasProblem ?  
-        (<div id="problem" className="dib absolute shadow-5 br3 ba center mt7 poscent bg-red" >
+        (<div id="problem" className="dib absolute shadow-5 br3 ba center mt7 poscent bg-light-yellow" >
           <h3 id="problem" className='tc'>Lūdzu pastāsti, kas nav labi</h3>
           <label id="problem" className="ml4 ">Problēma</label>
           <input id="problem"
@@ -61,12 +63,23 @@ console.log(hasProblem)
             
             type="submit" 
             value="Iesniegt">
-        </input> </div>)
+        </input>
+        
+        {problemStatus==="success" && 
+        <h1 className=" fr mr4 mt2 fw6 ph0  green">Izdevās</h1>
+        }
+        {problemStatus==="credital" && 
+        <h1 className="fr mt2 fw6 ph0 f3 dib w-50 red">Visi laiki nav aizpildīti</h1>
+        }
+        {problemStatus==="db" && 
+        <h1 className="fr mt2 fw6 ph0 f3 dib w-50 red">Ķļūda pievienošanā</h1>
+        }
+         </div>)
         :
         <input 
         id="problem"
-            onClick={()=>{updateHasProblem(true)}}
-              className="absolute f5 link  ph3 pv2 mb2 dib white bg-dark-blue" 
+            onClick={()=>{updateHasProblem(true); updateProblemStatus("")}}
+              className="absolute f6 link pointer ph3 pv2 mb2 dib white bg-dark-blue" 
               style={{bottom: 60, right:10}}
               type="submit" 
               value="Kaut kas nestrādā? Pastāsti!">
