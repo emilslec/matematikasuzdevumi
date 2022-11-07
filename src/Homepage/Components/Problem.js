@@ -35,7 +35,7 @@ const Problem = () => {
     }
   return( 
         hasProblem ?  
-        (<div id="problem" className="dib absolute shadow-5 br3 ba center mt7 poscent bg-light-yellow" >
+        (<div id="problem" className="dib fixed shadow-5 br3 ba center mt7 poscent bg-light-yellow" >
           <h3 id="problem" className='tc'>Lūdzu pastāsti, kas nav labi</h3>
           <label id="problem" className="ml4 ">Problēma</label>
           <input id="problem"
@@ -79,7 +79,7 @@ const Problem = () => {
         <input 
         id="problem"
             onClick={()=>{updateHasProblem(true); updateProblemStatus("")}}
-              className="absolute f6 link pointer ph3 pv2 mb2 dib white bg-dark-blue" 
+              className="fixed f6 link pointer ph3 pv2 mb2 dib white bg-dark-blue" 
               style={{bottom: 60, right:10}}
               type="submit" 
               value="Kaut kas nestrādā? Pastāsti!">

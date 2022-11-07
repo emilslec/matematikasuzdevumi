@@ -8,7 +8,7 @@ const Signin = ({ updateUser, user}) => {
   const [status, updateStatus] = useState("")
 
   const submitSignin = (e) => {
-  if(!email||!password){ updateStatus(["signin","emt_fail"])}
+  if(!email||!password){ updateStatus("emt_fail")}
 
   e.preventDefault();
     fetch('https://matematikasuzdevumiapi.herokuapp.com/signin', {
@@ -26,7 +26,7 @@ const Signin = ({ updateUser, user}) => {
 
       }
       if(res==="fail"){
-        updateStatus(["signin","cr_fail"])
+        updateStatus("cr_fail")
       }
     })
     .catch(err=>console.log(err))
@@ -94,19 +94,19 @@ const Signin = ({ updateUser, user}) => {
           <div  className="pv2 f6 link dim black db">Forgot your password?</div>
         </div>
         {
-        status[1]==="success" &&
+        status==="success" &&
           <div className="mt2">
             <label className="center f4 fw6 ph0  mh0 ">Reģistrācija notikusi veiksmīgi</label >
           </div>
         }
         {
-        status[1]==="cr_fail" &&
+        status==="cr_fail" &&
           <div className="mt2">
             <label className="center f4 fw6 ph0  mh0 ">Epasta adrese neeksistē vai arī parole nesakrīt</label >
           </div>
         }
         {
-        status[1]==="emt_fail" &&
+        status==="emt_fail" &&
           <div className="mt2">
             <label className="center f4 fw6 ph0  mh0 ">Visi lauki nav aizpildīti</label >
           </div>

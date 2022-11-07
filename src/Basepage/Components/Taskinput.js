@@ -12,7 +12,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const SendTask = (a) => {
     a.preventDefault();
     if(!taskName || !taskText ||!taskAnswer || !taskId || !user.email|| !taskLevel){
-      updateSubmitStatus('wrong');
+     return updateSubmitStatus('wrong');
     }
     fetch('https://matematikasuzdevumiapi.herokuapp.com/addtask', {
       method : 'post',
