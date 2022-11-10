@@ -73,18 +73,18 @@ const Signin = ({ updateUser, user}) => {
            onClick={submitSignin}
            >Sign in</Link>
            {user.email && (
-          <Navigate to="/home" replace={true} />
+          <Navigate to="/HomePage" replace={true} />
         )}
         </div>
         <div className="">
         <Link
            className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib"
-           to="/register"
+           to="/Register"
            >Register</Link>
         </div>
         <div className="">
           <Link 
-          to="/uzdevumi"
+          to="/Tasks"
            onClick={()=>
             updateUser("janka")}
            className="w-70 mt5 link b ph3 pv2 input-reset center a tc ba b--black  grow pointer f4 db" 

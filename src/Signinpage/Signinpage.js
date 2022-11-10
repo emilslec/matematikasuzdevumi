@@ -14,7 +14,7 @@ const Signinpage = ({user, updateUser}) => {
       <Title />
       <Routes>
           <Route path="*" element={<Signin user={user}  updateUser={updateUser}/>} />
-          <Route path="register" element={<Register updateUser={updateUser} /> }/>
+          <Route path="Register" element={<Register updateUser={updateUser} /> }/>
         </Routes>
       <Outlet />
     </div>

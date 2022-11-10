@@ -18,12 +18,12 @@ const App = () => {
       <>
         <Routes >
           <Route path="/*" element={<Signinpage user={user}  updateUser={updateUser}/>} />
-          <Route path="/home" element={<Homepage user={user} />} />
-          <Route path="/kratuve/*" replace element={<Basepage user={user}  updateUser={updateUser}/>} />
-          <Route path="/uzdevumi" element={<Taskpage  user={user} className="signinp"  updateUser={updateUser}/>} />
+          <Route path="/HomePage" element={<Homepage user={user} />} />
+          <Route path="/TaskAdd/*" replace element={<Basepage user={user}  updateUser={updateUser}/>} />
+          <Route path="/Tasks" element={<Taskpage  user={user} className="signinp"  updateUser={updateUser}/>} />
         </Routes>
         <Problem />
-        </>
+      </>
       )
    
 }
