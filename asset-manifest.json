@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/mathapp/static/css/main.bd518d4d.css",
-    "main.js": "/mathapp/static/js/main.766abdad.js",
+    "main.css": "/mathapp/static/css/main.0d08035e.css",
+    "main.js": "/mathapp/static/js/main.0b3a44b7.js",
     "static/js/787.9ff1e3d6.chunk.js": "/mathapp/static/js/787.9ff1e3d6.chunk.js",
     "static/media/image.jpg": "/mathapp/static/media/image.8a97d613eb29896a90b8.jpg",
     "index.html": "/mathapp/index.html",
-    "main.bd518d4d.css.map": "/mathapp/static/css/main.bd518d4d.css.map",
-    "main.766abdad.js.map": "/mathapp/static/js/main.766abdad.js.map",
+    "main.0d08035e.css.map": "/mathapp/static/css/main.0d08035e.css.map",
+    "main.0b3a44b7.js.map": "/mathapp/static/js/main.0b3a44b7.js.map",
     "787.9ff1e3d6.chunk.js.map": "/mathapp/static/js/787.9ff1e3d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bd518d4d.css",
-    "static/js/main.766abdad.js"
+    "static/css/main.0d08035e.css",
+    "static/js/main.0b3a44b7.js"
   ]
 }
