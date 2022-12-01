@@ -3,11 +3,11 @@ body {
 }
 
 .a {
-  background-color: #7E78D2 ;
+  background-color: #0bc0f7ec ;
 }
 
 .n {
-  background-color: #FF4A1C;
+  background-color: #eff783;
 }
 .homep {
   background-color: #EAAC8B ;
@@ -29,6 +29,8 @@ body {
 body {
   background-image: url('./Signinpage/Components/Background/image.jpg');
   background-size: cover;
+  background-image: url(./Taskpage/Leftside/bcg.svg)
+
 }
 
 .cont1{

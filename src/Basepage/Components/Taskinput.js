@@ -39,13 +39,8 @@ const Taskinput = ({taskId,updateUser, user}) => {
   }
 
   return (   
-    <div className="ma4  pl4  inpt">
-    <section className="w-70 pa3 f5  ma2 mw5 ba b--black-10 mw6-ns br3 mv4">
-      <p>Šajā mājaslapas sadaļā var pievienot savus izdomātos uzdevumus, lai citi tos varētu pildīt.</p>
-      No sākuma aizpildi lejā redzamos laukus ar savu uzdevumu un pēc tam izvēlies pie kuras tēmas uzdevums piederas, tas arī viss
-    <h3> Uzdevumu pievienos ar epastu : {user.email}</h3>
-    </section>
-      <div className="">
+    <div className="mr4 inpt">
+      <div className=" ">
         <form className="pa4 black-80">
         <label className="center f4 fw6 ph0 mh0 ">Uzdevuma Nosaukums</label >
         <input 
@@ -87,7 +82,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
             </div>
           <input 
               onClick={SendTask}
-              className=" mt4 b br3 pa4 pv2 db input-reset  ba b--dark-red bg-transparent pointer  f4 " 
+              className=" mt4 b br3 pa4 pv2 db input-reset  ba b--black bg-transparent pointer  f4 " 
               type="submit" 
               value="Pievienot uzdevumu">
             </input> 
@@ -95,17 +90,17 @@ const Taskinput = ({taskId,updateUser, user}) => {
         </form>
           {submitStatus==='right' &&
            <div>
-              <h1 className="center  fw6 ph0 mh0 green">Uzdevums veiksmīgi pievienots</h1>
+              <h1 className="center tc fw6 ph0  green">Uzdevums veiksmīgi pievienots</h1>
             </div>
           }
           {submitStatus==='wrong' && 
           <div>
-            <h1 className="center  fw6 ph0 mh0 red">Kāda no vērtībām trūkst</h1>
+            <h1 className="center tc fw6 ph0  red">Kāda no vērtībām trūkst</h1>
           </div>
           }
           {submitStatus==='db' && 
           <div>
-            <h1 className="center  fw6 ph0 mh0 red">Problēma ar datubāzi</h1>
+            <h1 className="center tc fw6 ph0 mh0 red">Problēma ar datubāzi</h1>
           </div>
           }
           

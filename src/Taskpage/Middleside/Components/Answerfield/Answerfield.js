@@ -64,13 +64,13 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
           <input 
               onClick={()=>{if(answerStatus==='pending'){CheckAnswer()}}}
               disabled={ChecSho()}
-              className=" mt3 b  ph3 db pv2 input-reset ba b--black bg-transparent pointer f6 " 
+              className=" mt3 b  ph4 db pv3 input-reset ba b--black dd  pointer f5 " 
               type="submit" 
               value="Iesniegt atbildi">
           </input>
           <input 
               onClick={()=>{if(activeTask.task_text){updateAnswerStatus('show')}}}
-              className=" mt3 b ph3 pv2 db input-reset ba b--black bg-transparent pointer f6 " 
+              className=" mt3 b ph4 pv3 db input-reset ba b--black dd pointer f5 " 
               type="submit" 
               disabled={ChecSho()}
               value="Parādīt atbildi">
@@ -82,15 +82,16 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
         <div className="w-50 relative h5">
           {answerStatus==='right' &&
            <div>
-              <h1 className="center  fw6 ph0 mh0 green">Pareizi</h1>
+              <h1 className="center tc fw6 ph0 mh0 green">Pareizi</h1>
             </div>
           }
           {answerStatus==='wrong' && 
           <div>
-            <h1 className="center  fw6 ph0 mh0 red">Nepareizi</h1 >
+            <h1 className="center tc fw6 ph0 mh0 red">Nepareizi</h1 >
             <input 
               onClick={()=>{updateAnswerStatus('pending')}}
-              className=" mt4 b br3 pa4 pv2 db input-reset  ba b--dark-red bg-transparent pointer  f4 " 
+              className="center mt4 ml4 b br3 pa4 pv3 db input-reset  ba b--dark-red bg-washed-green
+              pointer  f4 " 
               type="submit" 
               value="Mēģināt vēlreiz">
             </input> 
@@ -108,7 +109,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
           }
           <input 
               onClick={()=>{updateAnswerStatus('pending');NextTask(activeTask.task_id) }}
-              className="absolute bot mt4 fr b br3 ph4 pv2 db input-reset  ba b--gray bg-transparent pointer  f6 " 
+              className="absolute bot mt4 fr b br3 ph4 pv3 db input-reset  ba b--gray dd pointer  f6 " 
               type="submit" 
               value="Nākamais uzd">
           </input> 

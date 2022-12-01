@@ -72,7 +72,7 @@ const A = (ind) => {
   
 
     return(
-        <div className="mt3">
+        <div className="mt3 ml4 cx">
          <label className="center f4  fw6 ph0 mh0 ">Uzdevuma tēma</label >
 
         <div id="aa">

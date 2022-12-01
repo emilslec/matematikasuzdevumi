@@ -36,7 +36,7 @@ const Taskpage = ({updateUser, updatePath, user}) => {
 
   return (
     <div className="container">
-        <div className=" ">
+        <div className=" aa">
           <Leftside user={user} activeTheme={activeTheme} tasks={tasks} updateActiveTheme={updateActiveTheme} updateActiveTask={updateActiveTask}/>
         </div>
         <div className=" pa2">

@@ -87,7 +87,7 @@ const Signin = ({ updateUser, user}) => {
           to="/Tasks"
            onClick={()=>
             updateUser("janka")}
-           className="w-70 mt5 link b ph3 pv2 input-reset center a tc ba b--black  grow pointer f4 db" 
+           className="w-70 mt5 link b ph3 pv2 input-reset center a tc ba b--black white grow pointer f4 db" 
            >Pildīt uzdevumus bez reģistrēšanās</Link>
         </div>
         <div className="lh-copy mt3">
