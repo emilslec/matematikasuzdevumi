@@ -118,7 +118,7 @@ const Register = () => {
         {
         status==="password_fail" &&
           <div className="mt2">
-            <label className="center f4 fw6 ph0  mh0 ">Parole nav vismaz 8 rakstzīmes vai neiekļauj vismaz vienu lielo un mazo burtu</label >
+            <label className="center f4 fw6 ph0  mh0 ">Parole nav vismaz 8 rakstzīmes gara vai neiekļauj vismaz vienu lielo burtu,  mazo burtu un skaitli</label >
           </div>
         }
       </form>

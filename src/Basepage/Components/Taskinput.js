@@ -8,12 +8,13 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const [taskAnswer, updateTaskAnswer] = useState('');
   const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
-
+console.log(user)
   const SendTask = (a) => {
     a.preventDefault();
     if(!taskName || !taskText ||!taskAnswer || !taskId || !user.email|| !taskLevel){
      return updateSubmitStatus('wrong');
     }
+
     fetch('https://matematikasuzdevumiapi.herokuapp.com/addtask', {
       method : 'post',
       headers : {'Content-type' : 'application/json'},
@@ -40,7 +41,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
 
   return (   
     <div className="mr4 inpt">
-      <div className=" ">
+      <div className="">
         <form className="pa4 black-80">
         <label className="center f4 fw6 ph0 mh0 ">Uzdevuma Nosaukums</label >
         <input 

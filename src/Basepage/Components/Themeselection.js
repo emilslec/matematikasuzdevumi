@@ -1,10 +1,8 @@
 import React,{useState, useEffect} from 'react';
 const Themeselection = ({updateTaskId, taskId}) => {
-console.log(taskId)
   const [themes, updateThemes] = useState([{theme_id: 1, theme_name: 'Tēmas nosaukums', theme_class: 'Klase'}]);
   const [show, updateShow] = useState([true,true,true,true,true,true,true,true,true,true,true,true]);
 
-  console.log(themes)
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
