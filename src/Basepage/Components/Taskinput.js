@@ -8,7 +8,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const [taskAnswer, updateTaskAnswer] = useState('');
   const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
-console.log(user)
+// console.log(user)
   const SendTask = (a) => {
     a.preventDefault();
     if(!taskName || !taskText ||!taskAnswer || !taskId || !user.email|| !taskLevel){
@@ -58,14 +58,14 @@ console.log(user)
               id="comment" 
               name="comment"
               value={taskText}
-              className="mt2 db border-box hover-black w-100 h4 measure ba b--black-20 pa2 br2 mb2"
+              className="mt2 db border-box hover-black w-100 h4 measure ba b--black-50 pa2 br2 mb2"
               aria-describedby="comment-desc"
               placeholder="Teksts">
              </textarea>
             <label className="center f4 fw6 ph0 mh0 ">Uzdevuma atbilde</label >
           <input 
             onChange={(field)=> updateTaskAnswer(field.target.value)}
-            className="mt3 w-60 br2 input-reset mb3 ba b--black-40 pa2 db "
+            className="mt3 w-60 br2 input-reset mb3 ba b--black-50 pa2 db "
             type="text"
             value={taskAnswer}
             aria-describedby="name-desc"

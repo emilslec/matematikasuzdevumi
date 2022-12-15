@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link, Navigate  } from "react-router-dom";
 
 
@@ -23,13 +23,52 @@ const Signin = ({ updateUser, user}) => {
     .then(res=> {
       if(res.email){
         updateUser(res);
-
+        theCAookie();
       }
       if(res==="fail"){
-        updateStatus("cr_fail")
+        updateStatus("cr_fail");
+        
       }
     })
     .catch(err=>console.log(err))
+  }
+
+  useEffect(()=> {
+    updateEmail(getCooki("email"));
+    updatePassword(getCooki("password"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  
+  const theCAookie = () => {
+    if(!document.getElementById("chk").checked){
+       document.cookie = "email=; expires=Thu, 11 Sept 2001 02:11:11 UTC; path=/;";
+      return document.cookie = "password=; expires=Thu, 11 Sept 2001 02:11:11 UTC; path=/;";
+      
+    } 
+
+    const d = new Date();
+    d.setDate(d.getDate() + (1));
+    
+    document.cookie ="email=" + email + ";expires="+d + ";path=/";
+    document.cookie ="password=" + password + ";expires="+d + ";path=/";
+    
+  }
+
+  const getCooki = (cok) => {
+    let name = cok+"=";
+    let decodedC = decodeURIComponent(document.cookie);
+    let ca = decodedC.split('; ');
+    for(let i =0; i<ca.length; i++){
+      let c = ca[i]
+      while(c.charAt(0)=== ''){
+        c=c.substring(1); 
+      }
+      if(c.indexOf(name)===0){
+        return c.substring(name.length, c.length)
+      }
+    }
+    return "";
   }
 
   const passwordType = (e) => {
@@ -38,6 +77,7 @@ const Signin = ({ updateUser, user}) => {
     if(pwField.type==="password"){pwField.setAttribute("type", "text")}
     else if (pwField.type==="text"){pwField.setAttribute("type", "password")}
   }
+
 
   return (
     <main className="pa4 black-80">
@@ -48,6 +88,7 @@ const Signin = ({ updateUser, user}) => {
             <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
             <input
               onChange={(e)=> updateEmail(e.target.value)}
+              value={email}
               autoComplete="on"
               className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--light-blue" type="email" name="email-address"  id="email-address"></input>
           </div>
@@ -58,6 +99,7 @@ const Signin = ({ updateUser, user}) => {
             type="password"
             id="password"
             onChange={(e)=> updatePassword(e.target.value)}
+            value={password}
             autoComplete="on"
             ></input>
             <input className="w-25 fr  ph3 pv2 input-reset ba b--blsack bg-transparent grow pointer f6 dib" type="submit"
@@ -65,7 +107,7 @@ const Signin = ({ updateUser, user}) => {
            onClick={(e)=>passwordType(e)}>
            </input>
           </div>
-          <label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox"></input> Remember me</label>
+          <label  className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" id="chk" ></input> Remember me</label>
         </fieldset>
         <div className="">
           <Link
@@ -83,6 +125,9 @@ const Signin = ({ updateUser, user}) => {
            >Register</Link>
         </div>
         <div className="">
+          <div className="lh-copy mt3">
+          <div  className="pv2 f6 link dim black db">Forgot your password?</div>
+        </div>
           <Link 
           to="/Tasks"
            onClick={()=>
@@ -90,9 +135,7 @@ const Signin = ({ updateUser, user}) => {
            className="w-70 mt5 link b ph3 pv2 input-reset center a tc ba b--black white grow pointer f4 db" 
            >Pildīt uzdevumus bez reģistrēšanās</Link>
         </div>
-        <div className="lh-copy mt3">
-          <div  className="pv2 f6 link dim black db">Forgot your password?</div>
-        </div>
+        
         {
         status==="success" &&
           <div className="mt2">

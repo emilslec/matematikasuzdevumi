@@ -40,7 +40,7 @@ const A = (ind) => {
         }
       })
     }// eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [taskId])
+    }, [taskId, show])
 
    const [showBar, updateShowBar] = useState(true);
    const [searchField, updateSearchField] = useState("");
