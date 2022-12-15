@@ -23,7 +23,6 @@ const Signin = ({ updateUser, user}) => {
     .then(res=> {
       if(res.email){
         updateUser(res);
-        theCAookie();
       }
       if(res==="fail"){
         updateStatus("cr_fail");
@@ -31,44 +30,6 @@ const Signin = ({ updateUser, user}) => {
       }
     })
     .catch(err=>console.log(err))
-  }
-
-  useEffect(()=> {
-    updateEmail(getCooki("email"));
-    updatePassword(getCooki("password"));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  
-  const theCAookie = () => {
-    if(!document.getElementById("chk").checked){
-       document.cookie = "email=; expires=Thu, 11 Sept 2001 02:11:11 UTC; path=/;";
-      return document.cookie = "password=; expires=Thu, 11 Sept 2001 02:11:11 UTC; path=/;";
-      
-    } 
-
-    const d = new Date();
-    d.setDate(d.getDate() + (1));
-    
-    document.cookie ="email=" + email + ";expires="+d + ";path=/";
-    document.cookie ="password=" + password + ";expires="+d + ";path=/";
-    
-  }
-
-  const getCooki = (cok) => {
-    let name = cok+"=";
-    let decodedC = decodeURIComponent(document.cookie);
-    let ca = decodedC.split('; ');
-    for(let i =0; i<ca.length; i++){
-      let c = ca[i]
-      while(c.charAt(0)=== ''){
-        c=c.substring(1); 
-      }
-      if(c.indexOf(name)===0){
-        return c.substring(name.length, c.length)
-      }
-    }
-    return "";
   }
 
   const passwordType = (e) => {
