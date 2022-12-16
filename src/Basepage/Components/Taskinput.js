@@ -42,12 +42,6 @@ const Taskinput = ({taskId,updateUser, user}) => {
     })
   }
   useEffect(()=> {
-    //Pārveido uz matemātiku
-    // window.addEventListener('DOMContentLoaded', () => 
-    //     import('//unpkg.com/mathlive?module').then((mathlive) => 
-    //       mathlive.renderMathInDocument()
-    //     )
-    // );
     window.addEventListener('DOMContentLoaded', () =>   
       mfe.renderMathInDocument()
     );

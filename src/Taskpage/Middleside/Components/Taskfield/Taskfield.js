@@ -6,12 +6,6 @@ const Taskfield = ({task}) => {
   const mfe = new MathfieldElement();
 
   useEffect(()=> {
-    //Pārveido uz matemātiku
-    // window.addEventListener('DOMContentLoaded', () => 
-    //     import('//unpkg.com/mathlive?module').then((mathlive) => 
-    //       mathlive.renderMathInDocument()
-    //     )
-    // );
     window.addEventListener('DOMContentLoaded', () =>   
       mfe.renderMathInDocument()
     );
@@ -35,14 +29,6 @@ const Taskfield = ({task}) => {
       {task.task_level &&
         <p className="pb2 f6 pl2" >Sarežģītība: {task.task_level}</p>
       }
-      {/* <script type="module">
-      {window.addEventListener('DOMContentLoaded', () => 
-        import('//unpkg.com/mathlive?module').then((mathlive) => 
-          mathlive.renderMathInDocument()
-        )
-      )
-      }
-    </script> */}
     </section>
   )
 }
