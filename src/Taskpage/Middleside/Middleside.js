@@ -2,7 +2,6 @@ import React from 'react';
 import Taskfield from './Components/Taskfield/Taskfield';
 import Taskheader from './Components/Taskheader/Taskheader';
 import Answerfield from './Components/Answerfield/Answerfield';
-import Try from './Components/Try'
 
 
 import './Middlepage.css'
