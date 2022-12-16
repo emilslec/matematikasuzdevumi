@@ -42,7 +42,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
     })
   }
   useEffect(()=> {
-    window.addEventListener('DOMContentLoaded', () =>   
+    document.addEventListener('DOMContentLoaded', () =>   
       mfe.renderMathInDocument()
     );
     if(!document.getElementById('mf')) return
@@ -78,7 +78,15 @@ const Taskinput = ({taskId,updateUser, user}) => {
         </input>
         <label className="center f4 fw6 ph0 ">Uzdevums</label >
         <div className="mt2 db border-box hover-black w-100 h4 measure f3 ba b--black-50 pa2 br2 mb2" >
-           
+            <math-field virtual-keyboard-mode="manual"
+              onChange={(field)=> console.log("a")}
+              id="mf" 
+              
+              name="comment"
+              className="mt2 db border-box hover-black w-100 h4 measure ba b--black-50 pa2 br2 mb2"
+              aria-describedby="comment-desc"
+              placeholder="Teksts"> 
+             </math-field>
         </div>
             <textarea 
               onChange={(field)=> updateTaskText(field.target.value)}
