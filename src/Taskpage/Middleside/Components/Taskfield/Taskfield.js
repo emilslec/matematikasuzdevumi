@@ -1,7 +1,10 @@
 import React,{useEffect} from 'react';
+import { MathfieldElement} from 'mathlive';
 
 
 const Taskfield = ({task}) => {
+  const mfe = new MathfieldElement();
+
   useEffect(()=> {
     //Pārveido uz matemātiku
     // window.addEventListener('DOMContentLoaded', () => 
@@ -9,6 +12,9 @@ const Taskfield = ({task}) => {
     //       mathlive.renderMathInDocument()
     //     )
     // );
+    window.addEventListener('DOMContentLoaded', () =>   
+      mfe.renderMathInDocument()
+    );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener("keydown", (evt) =>  evt.preventDefault(), {capture: true});
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,14 +35,14 @@ const Taskfield = ({task}) => {
       {task.task_level &&
         <p className="pb2 f6 pl2" >Sarežģītība: {task.task_level}</p>
       }
-      <script type="module">
+      {/* <script type="module">
       {window.addEventListener('DOMContentLoaded', () => 
         import('//unpkg.com/mathlive?module').then((mathlive) => 
           mathlive.renderMathInDocument()
         )
       )
       }
-    </script>
+    </script> */}
     </section>
   )
 }

@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import { MathfieldElement} from 'mathlive';
 
 
 const Taskinput = ({taskId,updateUser, user}) => {
+
+  const mfe = new MathfieldElement();
 
   const [taskName, updateTaskName] = useState('');
   const [taskText, updateTaskText] = useState('');
@@ -45,6 +48,9 @@ const Taskinput = ({taskId,updateUser, user}) => {
     //       mathlive.renderMathInDocument()
     //     )
     // );
+    window.addEventListener('DOMContentLoaded', () =>   
+      mfe.renderMathInDocument()
+    );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener('input',()=> {
       updateTaskText(document.getElementById('mf').value)
@@ -143,14 +149,14 @@ const Taskinput = ({taskId,updateUser, user}) => {
       </div>
         
       
-      <script type="module">
+      {/* <script type="module">
       {window.addEventListener('DOMContentLoaded', () => 
         import('//unpkg.com/mathlive?module').then((mathlive) => 
           mathlive.renderMathInDocument()
         )
       )
       }
-    </script>
+    </script> */}
       
       </div>
   )
