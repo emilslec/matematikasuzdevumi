@@ -4,11 +4,11 @@ import React,{useEffect} from 'react';
 const Taskfield = ({task}) => {
   useEffect(()=> {
     //Pārveido uz matemātiku
-    window.addEventListener('DOMContentLoaded', () => 
-        import('//unpkg.com/mathlive?module').then((mathlive) => 
-          mathlive.renderMathInDocument()
-        )
-    );
+    // window.addEventListener('DOMContentLoaded', () => 
+    //     import('//unpkg.com/mathlive?module').then((mathlive) => 
+    //       mathlive.renderMathInDocument()
+    //     )
+    // );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener("keydown", (evt) =>  evt.preventDefault(), {capture: true});
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,6 +29,14 @@ const Taskfield = ({task}) => {
       {task.task_level &&
         <p className="pb2 f6 pl2" >Sarežģītība: {task.task_level}</p>
       }
+      <script type="module">
+      {window.addEventListener('DOMContentLoaded', () => 
+        import('//unpkg.com/mathlive?module').then((mathlive) => 
+          mathlive.renderMathInDocument()
+        )
+      )
+      }
+    </script>
     </section>
   )
 }

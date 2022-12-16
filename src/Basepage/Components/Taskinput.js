@@ -8,7 +8,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const [taskAnswer, updateTaskAnswer] = useState('');
   const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
-// console.log(user)
+
   const SendTask = (a) => {
     a.preventDefault();
     if(!taskName || !taskText ||!taskAnswer || !taskId || !user.email|| !taskLevel){
@@ -40,11 +40,11 @@ const Taskinput = ({taskId,updateUser, user}) => {
   }
   useEffect(()=> {
     //Pārveido uz matemātiku
-    window.addEventListener('DOMContentLoaded', () => 
-        import('//unpkg.com/mathlive?module').then((mathlive) => 
-          mathlive.renderMathInDocument()
-        )
-    );
+    // window.addEventListener('DOMContentLoaded', () => 
+    //     import('//unpkg.com/mathlive?module').then((mathlive) => 
+    //       mathlive.renderMathInDocument()
+    //     )
+    // );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener('input',()=> {
       updateTaskText(document.getElementById('mf').value)
@@ -143,7 +143,15 @@ const Taskinput = ({taskId,updateUser, user}) => {
       </div>
         
       
-    
+      <script type="module">
+      {window.addEventListener('DOMContentLoaded', () => 
+        import('//unpkg.com/mathlive?module').then((mathlive) => 
+          mathlive.renderMathInDocument()
+        )
+      )
+      }
+    </script>
+      
       </div>
   )
 }
