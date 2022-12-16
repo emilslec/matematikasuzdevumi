@@ -17,7 +17,7 @@ const Searchtask = ({updateActiveTheme, themes}) => {
   else{updateShowBar(false)} });
 
   return (
-    <div className="tc center mt4 measure relative">
+    <div className="tc w-60 center mt4 measure relative">
        <label id="nnn" className="nnn center f3 fw6 ph0 mh0 ">Meklēt tēmas :</label >
        
        <div id="aa">

@@ -30,10 +30,16 @@ const Leftside = ({activeTheme, updateActiveTheme, updateActiveTask, tasks, user
     
     
   return (
-    <div className="br flex flex-column">
-     	<Profile user={user}/>
-     	<Searchtask themes={themes} updateActiveTheme={updateActiveTheme}/>
-    	<Tasklist themes={themes} tasks={tasks} updateActiveTask={updateActiveTask} activeTheme={activeTheme} updateActiveTheme={updateActiveTheme}/>
+    <div className="br ffff flex flex-column">
+      <div className=''>
+     	  <Profile user={user}/>
+      </div>
+      <div className=''>
+     	  <Searchtask themes={themes} updateActiveTheme={updateActiveTheme}/>
+      </div>
+      <div className=' '>
+     	  <Tasklist themes={themes} tasks={tasks} updateActiveTask={updateActiveTask} activeTheme={activeTheme} updateActiveTheme={updateActiveTheme}/>
+      </div>
     </div>
   );
 }

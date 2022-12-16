@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import { Link, Navigate  } from "react-router-dom";
+
 
 
 const Signin = ({ updateUser, user}) => {
@@ -96,7 +97,6 @@ const Signin = ({ updateUser, user}) => {
            className="w-70 mt5 link b ph3 pv2 input-reset center a tc ba b--black white grow pointer f4 db" 
            >Pildīt uzdevumus bez reģistrēšanās</Link>
         </div>
-        
         {
         status==="success" &&
           <div className="mt2">

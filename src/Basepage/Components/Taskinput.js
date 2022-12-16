@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 const Taskinput = ({taskId,updateUser, user}) => {
@@ -38,6 +38,30 @@ const Taskinput = ({taskId,updateUser, user}) => {
       }
     })
   }
+  useEffect(()=> {
+    //Pārveido uz matemātiku
+    window.addEventListener('DOMContentLoaded', () => 
+        import('//unpkg.com/mathlive?module').then((mathlive) => 
+          mathlive.renderMathInDocument()
+        )
+    );
+    if(!document.getElementById('mf')) return
+    document.getElementById('mf').addEventListener('input',()=> {
+      updateTaskText(document.getElementById('mf').value)
+      console.log(document.getElementById('mf').value)
+
+    } )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  //Pievieno klaviaturu
+  if(document.getElementById("mf")){
+    document.getElementById("mf").setOptions({
+        virtualKeyboardMode: "manual",
+        virtualKeyboards: "numeric symbols"
+    });
+
+  }
 
   return (   
     <div className="mr4 inpt">
@@ -53,6 +77,17 @@ const Taskinput = ({taskId,updateUser, user}) => {
           placeholder="Nosaukums">
         </input>
         <label className="center f4 fw6 ph0 ">Uzdevums</label >
+        <div className="mt2 db border-box hover-black w-100 h4 measure f3 ba b--black-50 pa2 br2 mb2" >
+            <math-field virtual-keyboard-mode="manual"
+              onChange={(field)=> console.log("a")}
+              id="mf" 
+              
+              name="comment"
+              className="mt2 db border-box hover-black w-100 h4 measure ba b--black-50 pa2 br2 mb2"
+              aria-describedby="comment-desc"
+              placeholder="Teksts"> 
+             </math-field>
+        </div>
             <textarea 
               onChange={(field)=> updateTaskText(field.target.value)}
               id="comment" 
