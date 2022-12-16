@@ -144,20 +144,8 @@ const Taskinput = ({taskId,updateUser, user}) => {
           <div>
             <h1 className="center tc fw6 ph0 mh0 red">Problēma ar datubāzi</h1>
           </div>
-          }
-          
-      </div>
-        
-      
-      {/* <script type="module">
-      {window.addEventListener('DOMContentLoaded', () => 
-        import('//unpkg.com/mathlive?module').then((mathlive) => 
-          mathlive.renderMathInDocument()
-        )
-      )
-      }
-    </script> */}
-      
+          }  
+        </div>
       </div>
   )
 }
