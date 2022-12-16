@@ -54,14 +54,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  //Pievieno klaviaturu
-  if(document.getElementById("mf")){
-    document.getElementById("mf").setOptions({
-        virtualKeyboardMode: "manual",
-        virtualKeyboards: "numeric symbols"
-    });
-
-  }
+ 
 
   return (   
     <div className="mr4 inpt">
