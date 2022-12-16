@@ -11,7 +11,6 @@ const Taskfield = ({task}) => {
     );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener("keydown", (evt) =>  evt.preventDefault(), {capture: true});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   useEffect(()=> {
     document.getElementById('mf').value = task.task_text;
