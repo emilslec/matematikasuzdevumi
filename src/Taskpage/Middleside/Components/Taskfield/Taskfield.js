@@ -3,15 +3,16 @@ import { MathfieldElement} from 'mathlive';
 
 
 const Taskfield = ({task}) => {
-  const mfe = new MathfieldElement();
-
+  
   useEffect(()=> {
+    const mfe = new MathfieldElement();
     document.addEventListener('DOMContentLoaded', () =>   
       mfe.renderMathInDocument()
     );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener("keydown", (evt) =>  evt.preventDefault(), {capture: true});
   }, [])
+
   useEffect(()=> {
     document.getElementById('mf').value = task.task_text;
   },[task])

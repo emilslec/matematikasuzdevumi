@@ -3,7 +3,7 @@ import 'mathlive';
 
 const Try = () => {
     
-    // let a = "\\frac{\\pi}{2}"
+    let a = "\\frac{\\pi}{2}"
     // window.addEventListener('DOMContentLoaded', () => 
     //   import('//unpkg.com/mathlive?module').then((mathlive) => 
     //     mathlive.renderMathInDocument()

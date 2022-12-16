@@ -4,59 +4,59 @@ import { MathfieldElement} from 'mathlive';
 
 const Taskinput = ({taskId,updateUser, user}) => {
 
-  const mfe = new MathfieldElement();
-
+  
   const [taskName, updateTaskName] = useState('');
   const [taskText, updateTaskText] = useState('');
   const [taskAnswer, updateTaskAnswer] = useState('');
   const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
-
+  
   const SendTask = (a) => {
     a.preventDefault();
     if(!taskName || !taskText ||!taskAnswer || !taskId || !user.email|| !taskLevel){
-     return updateSubmitStatus('wrong');
+      return updateSubmitStatus('wrong');
     }
-
+    
     fetch('https://matematikasuzdevumiapi.herokuapp.com/addtask', {
       method : 'post',
       headers : {'Content-type' : 'application/json'},
-        body : JSON.stringify({
-          name: taskName,
-          text: taskText,
-          answer: taskAnswer,
-          theme: taskId,
-          email: user.email,
-          level: taskLevel
-        })})
-    .then(response => response.json())
-    .then(task => {
-      if(task.tasks_added){
-        updateSubmitStatus('right');
-        updateUser({...user, tasks_added: task.tasks_added})
-        updateTaskAnswer(""); updateTaskName(""); updateTaskText("");
-      }
-      else if (!task.task_id){
-        updateSubmitStatus('db')
+      body : JSON.stringify({
+        name: taskName,
+        text: taskText,
+        answer: taskAnswer,
+        theme: taskId,
+        email: user.email,
+        level: taskLevel
+      })})
+      .then(response => response.json())
+      .then(task => {
+        if(task.tasks_added){
+          updateSubmitStatus('right');
+          updateUser({...user, tasks_added: task.tasks_added})
+          updateTaskAnswer(""); updateTaskName(""); updateTaskText("");
+        }
+        else if (!task.task_id){
+          updateSubmitStatus('db')
       }
     })
   }
   useEffect(()=> {
+    const mfe = new MathfieldElement();
     document.addEventListener('DOMContentLoaded', () =>   
-      mfe.renderMathInDocument()
+    mfe.renderMathInDocument()
     );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener('input',()=> {
       updateTaskText(document.getElementById('mf').value)
       console.log(document.getElementById('mf').value)
-
+      
     } )
   }, [])
-
+  
   //Pievieno klaviaturu
   if(document.getElementById("mf")){
     document.getElementById("mf").setOptions({
-        virtualKeyboardMode: "manual",
+      virtualKeyboardMode: "manual",
         virtualKeyboards: "numeric symbols"
     });
 
