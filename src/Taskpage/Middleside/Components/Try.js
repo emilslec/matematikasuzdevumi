@@ -3,12 +3,12 @@ import 'mathlive';
 
 const Try = () => {
     
-    let a = "\\frac{\\pi}{2}"
-    window.addEventListener('DOMContentLoaded', () => 
-      import('//unpkg.com/mathlive?module').then((mathlive) => 
-        mathlive.renderMathInDocument()
-      )
-    );
+    // let a = "\\frac{\\pi}{2}"
+    // window.addEventListener('DOMContentLoaded', () => 
+    //   import('//unpkg.com/mathlive?module').then((mathlive) => 
+    //     mathlive.renderMathInDocument()
+    //   )
+    // );
     // eslint-disable-next-line react-hooks/exhaustive-deps
     if(document.getElementById("mf")){
 
