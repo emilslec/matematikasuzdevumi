@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import Searchtask from './Components/Searchtask/Searchtask';
 import Tasklist from './Components/Tasklist/Tasklist';
-import Profile from './Components/Profile/Profile';
+import Profile from './Components/Profile';
 
 
 

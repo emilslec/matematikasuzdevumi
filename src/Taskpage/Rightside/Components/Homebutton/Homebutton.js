@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Homebutton = ({ updateUser, user}) => {
   let navigate = useNavigate();
   const Teksts = ()=> {
-    if(user.email){return "Log out"}
+    if(user.email){return "Iziet"}
     else return "Reģistrēties"
   }
   return (

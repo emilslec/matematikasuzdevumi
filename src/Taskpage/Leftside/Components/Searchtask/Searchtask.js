@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Searchblock from '../Searchblock/Searchblock';
+import Searchblock from './Searchblock/Searchblock';
 
 
 

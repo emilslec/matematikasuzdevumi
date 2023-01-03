@@ -4,7 +4,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 4fr 7fr 3fr;
   gap: 20px;
   background-image: url(./Leftside/bcg.svg)
 }

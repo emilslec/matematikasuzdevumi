@@ -3,14 +3,28 @@
 	max-height: 150px;
 }
 
-.cx {overflow-y: auto;
-	max-height: 64vh;
-	scrollbar-width: auto;
+.cssss{
+	height: 64vh;
+}
+.nosaukums{
+	height: 8vh;
+}
+.scroll2{
+	height: 56vh;
+	overflow-y: hidden;
+}
+.cx {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	scrollbar-width: thin;
+}
+.cxx {
+	overflow-y: hidden;
+	
+	scrollbar-width: thin;
 }
 
-.ffff{
-	max-height: 100vh;
-}
+
 
 .dddd{
 	height: 20vh;
@@ -18,4 +32,8 @@
 
 .ddd{
 	height: 60vh;
+}
+
+.profile{
+	height:207px;
 }

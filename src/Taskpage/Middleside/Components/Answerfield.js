@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import './Answerfield.css';
 
 const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
 
@@ -75,8 +74,8 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
               disabled={ChecSho()}
               value="Parādīt atbildi">
           </input>
-          {activeTask.user_email &&
-             <div className='mt2'>Uzdevumu pievienoja: {activeTask.user_email}</div>}
+          {/* {activeTask.user_email &&
+             <div className='mt2'>Uzdevumu pievienoja: {activeTask.user_email}</div>} */}
           
         </div>
         <div className="w-50 relative h5">
@@ -90,8 +89,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
             <h1 className="center tc fw6 ph0 mh0 red">Nepareizi</h1 >
             <input 
               onClick={()=>{updateAnswerStatus('pending')}}
-              className="center mt4 ml4 b br3 pa4 pv3 db input-reset  ba b--dark-red bg-washed-green
-              pointer  f4 " 
+              className="center mt4 ml4 b br3 pa4 pv3 db input-reset bg-light-yellow ba pointer  f4 " 
               type="submit" 
               value="Mēģināt vēlreiz">
             </input> 
