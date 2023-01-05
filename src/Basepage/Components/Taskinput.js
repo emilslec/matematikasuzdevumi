@@ -27,7 +27,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
         info: taskInfo,
         answer: taskAnswer,
         theme: taskId,
-        email: user.username,
+        email: user.email,
         level: taskLevel
       })})
       .then(response => response.json())

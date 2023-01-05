@@ -3,10 +3,10 @@ import React, {useState, useEffect} from 'react';
 const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
 
   const [answerInput, updateAnswerInput] = useState('');
-  const [answerStatus, updateAnswerStatus] = useState('pending');
+  const [answerStatus, updateAnswerStatus] = useState('not');
 
   useEffect (() => {
-    updateAnswerStatus('pending')
+    if(activeTask.task_id) updateAnswerStatus('pending')
   }, [activeTask])
 
   const CheckAnswer = () => {
@@ -42,7 +42,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
       }
     })
   }
-
+  
   const ChecSho = () => {
     if(answerStatus==="pending"){return false}
     else{return true}
