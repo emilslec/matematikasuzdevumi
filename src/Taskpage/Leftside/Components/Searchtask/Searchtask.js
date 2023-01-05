@@ -27,6 +27,7 @@ const Searchtask = ({updateActiveTheme, themes}) => {
             onClick={()=>updateShowBar(true)}
             className="mt3 w-100 input-reset ba b--black-20 pa2  db "
             type="text"
+            autoComplete='off'
             aria-describedby="name-desc">
           </input>
           

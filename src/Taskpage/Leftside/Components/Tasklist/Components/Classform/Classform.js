@@ -13,7 +13,7 @@ const Classform = ({classs, themes, updateActiveTheme}) => {
         {themes.map((theme, i) => {
               return (
                   <li
-                    className=""
+                    className="list pt2"
                      key={i}
                      onClick={()=> updateActiveTheme(theme)}
                   >

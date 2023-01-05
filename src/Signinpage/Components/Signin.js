@@ -71,6 +71,7 @@ const Signin = ({ updateUser, user}) => {
             ></input>
             <input className="w-25 fr  ph3 pv2 input-reset ba b--blsack bg-transparent grow pointer f6 dib" type="submit"
            value="Rādīt paroli"
+           id="pogga"
            onClick={(e)=>passwordType(e)}>
            </input>
           </div>

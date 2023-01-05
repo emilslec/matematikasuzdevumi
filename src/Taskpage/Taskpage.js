@@ -33,7 +33,7 @@ const Taskpage = ({updateUser, updatePath, user}) => {
     return () => {
     }
   },[activeTheme]);
-
+console.log(tasks)
   return (
     <div className="container ffff">
         <div className=" aa">

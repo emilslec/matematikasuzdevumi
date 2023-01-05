@@ -14,7 +14,7 @@ const Tasklist = ({activeTheme, updateActiveTheme, tasks, updateActiveTask, them
   } 
     return(
       <div className="flex">
-        <div className="w-40 mt3 cx cssss">
+        <div className="w-50 mt3 cx cssss">
         {
             classes.map((classs, i) => {
               return (
@@ -27,7 +27,7 @@ const Tasklist = ({activeTheme, updateActiveTheme, tasks, updateActiveTask, them
             })
         }
         </div>
-        <div className="w-60 mt3  cssss">
+        <div className="w-50 mt3  cssss">
           <Activetasks activeTheme={activeTheme} tasks={tasks} updateActiveTask={updateActiveTask}/>
         </div>
     </div>
