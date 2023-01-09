@@ -106,7 +106,7 @@ const Signin = ({ updateUser, user}) => {
         {
           status==="cr_fail" &&
           <div className="mt2">
-            <label className="center f4 fw6 ph0  mh0 ">Epasta adrese neeksistē vai arī parole nesakrīt</label >
+            <label className="center f4 fw6 ph0  mh0 ">E-pasta adrese neeksistē vai arī parole nesakrīt</label >
           </div>
         }
         {

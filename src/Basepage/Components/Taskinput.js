@@ -11,13 +11,15 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const [taskAnswer, updateTaskAnswer] = useState('');
   const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
-  
+
   const SendTask = (a) => {
     a.preventDefault();
+    if(document.getElementById("typz").value==="Uzdevums ar tekstu")updateTaskText("\\"+ "text" +taskInfo)
+    else(updateTaskText(taskText=>"\\"+taskText))
     if(!taskName || !taskText ||!taskAnswer || !taskId || !user.email|| !taskLevel){
       return updateSubmitStatus('wrong');
     }
-    
+    console.log(taskText)
     fetch('https://matematikasuzdevumiapi.herokuapp.com/addtask', {
       method : 'post',
       headers : {'Content-type' : 'application/json'},
@@ -36,6 +38,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
           updateSubmitStatus('right');
           updateUser({...user, tasks_added: task.tasks_added})
           updateTaskAnswer(""); updateTaskName(""); updateTaskText(""); updateTaskInfo(""); 
+          document.getElementById('mf').value = "";
         }
         else if (!task.task_id){
           updateSubmitStatus('db')
@@ -49,9 +52,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
     );
     if(!document.getElementById('mf')) return
     document.getElementById('mf').addEventListener('input',()=> {
-      updateTaskText(document.getElementById('mf').value)
-      console.log(document.getElementById('mf').value)
-      
+      updateTaskText(document.getElementById('mf').value)      
     } )
   }, [])
   
@@ -77,8 +78,18 @@ const Taskinput = ({taskId,updateUser, user}) => {
           aria-describedby="name-desc"
           placeholder="Nosaukums">
         </input>
-        <label className="center f4 fw6 ph0 ">Uzdevums <span className='f7'>(Pats uzdevums, te var rakstīt tikai matemātisku izteiksmi)</span></label >
-        <div className="mt2 db border-box hover-black w-100 h4 measure f3 ba b--black-50 pa2 br2 mb2" >
+        <label className="center f4 fw6 ph0 ">Uzdevums <span className='f7'>(Pats uzdevums, zemāk ir jāizvēlas uzdevuma veids)</span></label >
+          <br></br>
+        <label className="center f4 fw6 ph0 mh0 ">Uzdevuma veids </label >
+          <br></br>
+          <select
+          id="typz"
+           className="db w-50 f5 mt2">
+                <option value="Matemātiska izteiksme">Matemātiska izteiksme</option>
+                <option value="Uzdevums ar tekstu">Uzdevums ar tekstu</option>
+              </select>
+         <br></br> <label className="center f5 fw6 ph0 mh0 ">Uzdevums ar matamātisku izteiksmi</label >
+        <div className="mt2 db border-box hover-black mw6   f3 ba b--black-50 pa2 br2 mb2" >
             <math-field virtual-keyboard-mode="manual"
               //onChange={(field)=> console.log("a")}
               id="mf" 
@@ -89,7 +100,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
               placeholder="Teksts"> 
              </math-field>
         </div>
-        <label className="center f4 fw6 ph0 mh0 ">Uzdevuma piebilde <span className='f7'>(Teksts par uzdevumu) Nav obligāts</span></label >
+        <label className="center f5 fw6 ph0 mh0 ">Uzdevums ar tekstu</label >
             <textarea 
               onChange={(field)=> updateTaskInfo(field.target.value)}
               id="comment" 
@@ -99,7 +110,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
               aria-describedby="comment-desc"
               placeholder="Teksts">
              </textarea>
-            <label className="center f4 fw6 ph0 mh0 ">Uzdevuma atbilde <span className='f7'>(Tava izdomātā uzdevuma atbilde)</span></label >
+             <label className="center f4 fw6 ph0 mh0 ">Uzdevuma atbilde <span className='f7'>(Tava izdomātā uzdevuma atbilde)</span></label >
           <input 
             onChange={(field)=> updateTaskAnswer(field.target.value)}
             className="mt3 w-60 br2 input-reset mb3 ba b--black-50 pa2 db "
@@ -110,7 +121,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
           </input>
           <div>
               <label className="center f4 fw6 ph0 mh0 ">Uzdevuma grūtības pakāpe skalā no 1 līdz 5 <span className='f7'>(Uzdevuma sarežģītība izvēlētajai klasei)</span></label >
-              <select onChange={(e)=>updateTaskLevel(e.target.value)} className="db w-50 f4 mt2" id="cars" name="cars">
+              <select onChange={(e)=>updateTaskLevel(e.target.value)} className="db w-50 f4 mt2">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

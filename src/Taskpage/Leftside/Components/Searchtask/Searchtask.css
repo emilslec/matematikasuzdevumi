@@ -9,6 +9,9 @@
 .nosaukums{
 	height: 100px;
 }
+.scroll3{
+	height:74vh
+}
 .scroll2{
 	height: 53.5vh;
 	overflow-y: hidden;
@@ -23,7 +26,12 @@
 	
 	scrollbar-width: thin;
 }
-
+.whel{
+	width:500px
+}
+.whels{
+	width:300px
+}
 
 
 .dddd{
@@ -36,4 +44,7 @@
 
 .profile{
 	height:207px;
+}
+.theme{
+	min-width: 400px;
 }

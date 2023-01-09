@@ -16,7 +16,7 @@ const Choicedotask = ({ user}) => {
       <div className="h5 w-70 center mv3">
         Šajā sadaļā Jūs varat izvēlēties starp uzdevumu pildīšanu un to pievienošanu
         <h1 className="f1 pv3 ba br4 n f2-m fw2 mt5 black-90 ">
-          Jūs esat pievienojies kā <div>{user.email}</div> 
+          Jūs esat pievienojies kā <div>{user.username}</div> 
         </h1>
       </div>
       <div className="h5">

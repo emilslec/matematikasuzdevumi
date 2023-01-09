@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Searchblock from './Searchblock/Searchblock';
 
 
@@ -10,11 +10,14 @@ const Searchtask = ({updateActiveTheme, themes}) => {
   const [searchField, updateSearchField] = useState('');
   const [showBar, updateShowBar] = useState(true);
 
-  document.addEventListener('click', function handleClickOutsideBox(event) {
-  if(event.target.id==='aa'){
-    updateShowBar(true)
-  }
-  else{updateShowBar(false)} });
+  useEffect(()=>{
+
+    document.addEventListener('click', function handleClickOutsideBox(event) {
+    if(event.target.id==='aa'){
+      updateShowBar(true)
+    }
+    else{updateShowBar(false)} });
+  })
 
   return (
     <div className="tc w-60 center mt4 measure relative">

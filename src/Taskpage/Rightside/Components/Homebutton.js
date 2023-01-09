@@ -9,7 +9,7 @@ const Homebutton = ({ updateUser, user}) => {
     else return "Reģistrēties"
   }
   return (
-    <div className="">
+    <>
       <div className="">
         <input
           onClick={() =>{ updateUser(''); navigate("/")}} 
@@ -26,7 +26,7 @@ const Homebutton = ({ updateUser, user}) => {
          value="Izvēlne"></input>
        </div>
       }
-   </div>
+   </>
   )
 
 }

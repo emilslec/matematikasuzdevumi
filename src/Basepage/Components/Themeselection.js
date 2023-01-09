@@ -70,7 +70,7 @@ const A = (ind) => {
   
 
     return(
-        <div className="mt3 ml4 cx cssss">
+        <div className="mt3 ml3  theme">
          <label className="center f4  fw6 ph0 mh0 ">Uzdevuma tēma</label >
 
         <div id="aa">
@@ -85,7 +85,7 @@ const A = (ind) => {
             aria-describedby="name-desc">
           </input>
           
-            <div className="c o-90  w-100 bg-green ph1">
+          <div className="c whel b--green bg-white overflow-x-hidden mt1 absolute ph1">
             { showBar &&
               themes.filter(theme => {
                 return theme.theme_name.toLowerCase().startsWith(searchField.toLowerCase())&&searchField
@@ -95,7 +95,7 @@ const A = (ind) => {
                       <div 
                       key={i}
                         onClick={()=>{A(theme.theme_class);updateShowBar(false);updateTaskId(theme.theme_id)}}
-                        className="ba  pv1 b--black-50 mv1"
+                        className="ba whel pv1 b--black-50 mv1"
                       >
                         {theme.theme_name}   
                     </div>
@@ -104,31 +104,33 @@ const A = (ind) => {
             }
           </div>
         </div>
+        <div className='cx scroll3 '>
         {
           classes.map((classs, i) => {
-              return (
-                <div key={i} className="mt3">
+            return (
+              <div key={i} className="mt3 mr3">
               <h3 onClick={() => ShowWitch(i)}  className="f5 b pointer mv2 ml1   black">{classs}. Klase</h3>
                   {show[i] &&
                   themes.filter(theme => {
-                      return theme.theme_class === classs
+                    return theme.theme_class === classs
                   }).map((theme, i) => {
-                      return (
-                         <div
-                            className="pr2 pointer pv1"
-                              id={theme.theme_id}
-                              key={i}
-                              onClick={()=>updateTaskId(theme.theme_id)}
-                             >
+                    return (
+                      <div
+                      className="pr2 pointer pv1"
+                      id={theme.theme_id}
+                      key={i}
+                      onClick={()=>updateTaskId(theme.theme_id)}
+                      >
                               {theme.theme_name} 
                             </div>
                           );
                         })       
-                  }
-        </div>     
+                      }
+                </div>     
               );
-          })
-        }
+            })
+          }
+        </div>
         </div>
   );
 }
