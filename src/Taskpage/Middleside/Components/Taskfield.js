@@ -23,25 +23,25 @@ const Taskfield = ({task}) => {
   // console.log(task.task_text)
 
   return (
-    <section className="center mw5 mw6-ns p  br3 mv4">
+    <section className="center mw5 mw6-ns p h4 br3 mv4">
       <div className="pa3 mb2 bg-washed-blue ba br3 b--black-50 ">
+        <p className='' id="tt">
         {
           type ? 
-        <p className='' id="tt">
-          {task.task_text.replace("\\text", "")}
-        </p>
-        :
-        <math-field
-         read-only
-       id="mf"
-        style={{width:500}}
-        value={task.task_text}
-        >
+          task.task_text.replace("\\text", "")
+          :
+          <math-field
+          read-only
+          id="mf"
+          style={{width:500}}
+          value={task.task_text}
+          >
       {task.task_text}
        
         </math-field> 
       // <math-field value="e^{i\pi}"></math-field>
     }
+    </p>
 
       </div>
       {task.task_level &&

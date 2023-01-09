@@ -36,7 +36,7 @@ const Problem = () => {
   return( 
         hasProblem ?  
         (<div id="problem" className="dib fixed shadow-5 br3 ba center mt7 poscent bg-light-yellow" >
-          <h3 id="problem" className='tc'>Lūdzu pastāsti, kas nav labi</h3>
+          <h3 id="problem" className='tc'>Lūdzu pastāsti, kas nestrādā</h3>
           <label id="problem" className="ml4 ">Problēma</label>
           <input id="problem"
           placeholder="Problēma"

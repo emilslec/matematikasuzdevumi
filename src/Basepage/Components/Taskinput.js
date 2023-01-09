@@ -139,17 +139,17 @@ const Taskinput = ({taskId,updateUser, user}) => {
         </form>
           {submitStatus==='right' &&
            <div>
-              <h1 className="center tc fw6 ph0  green">Uzdevums veiksmīgi pievienots</h1>
+              <h1 className="center tc fw6 ph0  green">Uzdevums veiksmīgi pievienots!</h1>
             </div>
           }
           {submitStatus==='wrong' && 
           <div>
-            <h1 className="center tc fw6 ph0  red">Kāda no vērtībām trūkst</h1>
+            <h1 className="center tc fw6 ph0  red">Kāda no vērtībām trūkst!</h1>
           </div>
           }
           {submitStatus==='db' && 
           <div>
-            <h1 className="center tc fw6 ph0 mh0 red">Problēma ar datubāzi</h1>
+            <h1 className="center tc fw6 ph0 mh0 red">Šāds uzdevums jau eksistē!</h1>
           </div>
           }  
         </div>

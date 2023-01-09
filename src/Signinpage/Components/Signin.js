@@ -83,7 +83,7 @@ const Signin = ({ updateUser, user}) => {
            onClick={submitSignin}
            >Ieiet portālā</Link>
            {user.email && (
-          <Navigate to="/HomePage" replace={true} />
+          <Navigate to="/homepage" replace={true} />
         )}
         </div>
         <div className="">
@@ -116,7 +116,7 @@ const Signin = ({ updateUser, user}) => {
           </div>
         }
         <Link 
-        to="/Tasks"
+        to="/tasks"
          onClick={()=>
           updateUser("janka")}
          className="w-70 mt5 link b ph3 pv2 input-reset  tc ba b--black  grow pointer f4 db" //a white
