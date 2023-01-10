@@ -89,7 +89,7 @@ const Signin = ({ updateUser, user}) => {
         <div className="">
         <Link
            className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib"
-           to="/Register"
+           to="/register"
            >Reģistrēties</Link>
         {/* </div>
         <div className="">

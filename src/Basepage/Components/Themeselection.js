@@ -80,12 +80,12 @@ const A = (ind) => {
               placeholder='Meklēt tēmu'
             onChange={(field)=> updateSearchField(field.target.value)}
             onClick={()=>updateShowBar(true)}
-            className="mt3 w-100 input-reset ba b--black-20 pa2  db "
+            className="mt3 w-80 input-reset ba b--black-20 pa2  db "
             type="text"
             aria-describedby="name-desc">
           </input>
           
-          <div className="c whel b--green bg-white overflow-x-hidden mt1 absolute ph1">
+          <div className="c whels  b--green bg-white overflow-x-hidden mt1 absolute ph1">
             { showBar &&
               themes.filter(theme => {
                 return theme.theme_name.toLowerCase().startsWith(searchField.toLowerCase())&&searchField
@@ -95,7 +95,7 @@ const A = (ind) => {
                       <div 
                       key={i}
                         onClick={()=>{A(theme.theme_class);updateShowBar(false);updateTaskId(theme.theme_id)}}
-                        className="ba whel pv1 b--black-50 mv1"
+                        className="ba whel  pv1 b--black-50 mv1"
                       >
                         {theme.theme_name}   
                     </div>

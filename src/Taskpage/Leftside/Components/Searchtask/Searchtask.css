@@ -7,7 +7,7 @@
 	height: 64vh;
 }
 .nosaukums{
-	height: 100px;
+	height: 6.2rem;
 }
 .scroll3{
 	height:74vh
@@ -27,13 +27,11 @@
 	scrollbar-width: thin;
 }
 .whel{
-	width:500px
+	width:400px
 }
 .whels{
-	width:300px
+	width: 405px;
 }
-
-
 .dddd{
 	height: 20vh;
 }
@@ -43,7 +41,7 @@
 }
 
 .profile{
-	height:207px;
+	height:13rem;
 }
 .theme{
 	min-width: 400px;
