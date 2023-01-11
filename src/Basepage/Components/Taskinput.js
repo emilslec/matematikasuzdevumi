@@ -12,20 +12,22 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
 
+
   const SendTask = (a) => {
     a.preventDefault();
-    if(document.getElementById("typz").value==="Uzdevums ar tekstu")updateTaskText("\\"+ "text" +taskInfo)
-    else(updateTaskText(taskText=>"\\"+taskText))
-    if(!taskName || !taskText ||!taskAnswer || !taskId || !user.email|| !taskLevel){
+    let b;
+    if(document.getElementById("typz").value==="Uzdevums ar tekstu") b = ("\\"+ "text" +taskInfo)
+    else b=taskText
+    
+    if(!taskName || !b ||!taskAnswer || !taskId || !user.email|| !taskLevel){
       return updateSubmitStatus('wrong');
     }
-    console.log(taskText)
     fetch('https://matematikasuzdevumiapi.herokuapp.com/addtask', {
       method : 'post',
       headers : {'Content-type' : 'application/json'},
       body : JSON.stringify({
         name: taskName,
-        text: taskText,
+        text: b,
         info: taskInfo,
         answer: taskAnswer,
         theme: taskId,
@@ -45,15 +47,21 @@ const Taskinput = ({taskId,updateUser, user}) => {
       }
     })
   }
+
   useEffect(()=> {
     const mfe = new MathfieldElement();
     document.addEventListener('DOMContentLoaded', () =>   
     mfe.renderMathInDocument()
     );
-    if(!document.getElementById('mf')) return
-    document.getElementById('mf').addEventListener('input',()=> {
-      updateTaskText(document.getElementById('mf').value)      
-    } )
+    const mf = document.getElementById('mf')
+    if(!mf) return
+    mf.addEventListener('input',()=> {
+      updateTaskText(mf.value)      
+    } 
+    )
+    // mf.addEventListener('focus', (event)=>{
+    //   event.target.style.background = 'pink';
+    // })
   }, [])
   
   //Pievieno klaviaturu
@@ -90,10 +98,12 @@ const Taskinput = ({taskId,updateUser, user}) => {
               </select>
          <br></br> <label className="center f5 fw6 ph0 mh0 ">Uzdevums ar matamātisku izteiksmi</label >
         <div className="mt2 db border-box hover-black mw6   f3 ba b--black-50 pa2 br2 mb2" >
+          {/* <input></input> */}
             <math-field virtual-keyboard-mode="manual"
               //onChange={(field)=> console.log("a")}
               id="mf" 
-              
+              onfocus
+              style={{backgroundColor:'white'}}
               name="comment"
               className="mt2 db border-box hover-black w-100 h4 measure ba b--black-50 pa2 br2 mb2"
               aria-describedby="comment-desc"
