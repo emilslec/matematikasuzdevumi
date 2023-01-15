@@ -15,7 +15,8 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify ({
-        email: user.email
+        email: user.email,
+        task: activeTask.task_id
       }),
       })
       .then(response => response.json())
