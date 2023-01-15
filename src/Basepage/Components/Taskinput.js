@@ -70,7 +70,6 @@ const Taskinput = ({taskId,updateUser, user}) => {
       virtualKeyboardMode: "manual",
         virtualKeyboards: "numeric symbols"
     });
-
   }
 
   return (   
@@ -96,8 +95,8 @@ const Taskinput = ({taskId,updateUser, user}) => {
                 <option value="Matemātiska izteiksme">Matemātiska izteiksme</option>
                 <option value="Uzdevums ar tekstu">Uzdevums ar tekstu</option>
               </select>
-         <br></br> <label className="center f5 fw6 ph0 mh0 ">Uzdevums ar matamātisku izteiksmi</label >
-        <div className="mt2 db border-box hover-black mw6   f3 ba b--black-50 pa2 br2 mb2" >
+         <br></br> <label className="center f5 fw6 ph0 mh0 ">Uzdevums ar matemātisku izteiksmi</label >
+        <div className="mt2 db border-box hover-black mw6 bg-white  f3 ba b--black-50 pa2 br2 mb2" >
           {/* <input></input> */}
             <math-field virtual-keyboard-mode="manual"
               //onChange={(field)=> console.log("a")}

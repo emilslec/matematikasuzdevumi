@@ -6,12 +6,12 @@ import Choisedotask from './Components/Choisedotask';
 import './homepage.css'
 
 
-const Homepage = ({ user}) => {
+const Homepage = ({updateUser, user}) => {
 
 
   return (
     <div >
-      <Choisedotask  user={user} />
+      <Choisedotask updateUser={updateUser} user={user} />
     </div>
   );
 }

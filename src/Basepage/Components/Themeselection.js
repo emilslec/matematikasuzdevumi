@@ -71,7 +71,7 @@ const A = (ind) => {
 
     return(
         <div className="mt3 ml3  theme">
-         <label className="center f4  fw6 ph0 mh0 ">Uzdevuma tēma</label >
+         <label className="center f4  fw6 ph0 mh0 ">Uzdevuma tēma <span className='f7'>(Uzdevumam atbilstošā tēma)</span></label >
 
         <div id="aa">
          <input 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 
 
-const Choicedotask = ({ user}) => {
+const Choicedotask = ({updateUser, user}) => {
 
   let navigate = useNavigate();
 
@@ -10,6 +10,8 @@ const Choicedotask = ({ user}) => {
     if(user.email) return
     return "Login to access"
   }
+  
+  
 
   return (
     <div className="bg-transparent mt5 w-60 tc center flex-column flex">

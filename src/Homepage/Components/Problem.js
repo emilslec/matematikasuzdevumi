@@ -69,7 +69,7 @@ const Problem = () => {
         <h1 className=" fr mr4 mt2 fw6 ph0  green">Izdevās</h1>
         }
         {problemStatus==="credital" && 
-        <h1 className="fr mt2 fw6 ph0 f3 dib w-50 red">Visi laiki nav aizpildīti</h1>
+        <h1 className="fr mt2 fw6 ph0 f3 dib w-50 red">Visi lauki nav aizpildīti</h1>
         }
         {problemStatus==="db" && 
         <h1 className="fr mt2 fw6 ph0 f3 dib w-50 red">Ķļūda pievienošanā</h1>

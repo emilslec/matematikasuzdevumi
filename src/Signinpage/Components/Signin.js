@@ -24,6 +24,7 @@ const Signin = ({ updateUser, user}) => {
     .then(res=> {
       if(res.email){
         updateUser(res);
+        console.log(user)
       }
       if(res==="fail"){
         updateStatus("cr_fail");

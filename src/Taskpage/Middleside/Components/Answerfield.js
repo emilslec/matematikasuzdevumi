@@ -5,10 +5,22 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
   const [answerInput, updateAnswerInput] = useState('');
   const [answerStatus, updateAnswerStatus] = useState('not');
 
+  
+  useEffect (() => {
+  var input = document.getElementById("bo");
+
+  input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("no").click();
+  }
+  });
+  }, [])
+
   useEffect (() => {
     if(activeTask.task_id) updateAnswerStatus('pending')
   }, [activeTask])
-
+  
   const CheckAnswer = () => {
     if (answerInput===activeTask.task_answer){
       fetch('https://matematikasuzdevumiapi.herokuapp.com/taskpoint', {
@@ -20,7 +32,8 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
       }),
       })
       .then(response => response.json())
-      .then(compl => updateUser({...user,tasks_completed: compl}))
+      .then(compl =>{
+        if(compl.tasks_completed) updateUser({...user,tasks_completed: compl.tasks_completed})})
       .catch(err => console.log(err))
       updateAnswerStatus('right')
       updateAnswerInput("");
@@ -59,6 +72,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
           value={answerInput}
           className="mt3  input-reset ba b--black-20 pa2  db "
           type="text"
+          id="bo"
           aria-describedby="name-desc">
         </input>
           <input 
@@ -66,6 +80,7 @@ const Answerfield = ({activeTask,tasks,user,updateUser, updateActiveTask}) => {
               disabled={ChecSho()}
               className=" mt3 b  ph4 db pv3 input-reset ba b--black dd  pointer f5 " 
               type="submit" 
+              id="no"
               value="Iesniegt atbildi">
           </input>
           <input 

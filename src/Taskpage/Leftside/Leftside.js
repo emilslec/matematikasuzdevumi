@@ -26,7 +26,6 @@ const Leftside = ({activeTheme, updateActiveTheme, updateActiveTask, tasks, user
     }
   },[]);
   
-
     
     
   return (
@@ -38,7 +37,7 @@ const Leftside = ({activeTheme, updateActiveTheme, updateActiveTask, tasks, user
      	  <Searchtask themes={themes} updateActiveTheme={updateActiveTheme}/>
       </div>
       <div className=' '>
-     	  <Tasklist themes={themes} tasks={tasks} updateActiveTask={updateActiveTask} activeTheme={activeTheme} updateActiveTheme={updateActiveTheme}/>
+     	  <Tasklist themes={themes} tasks={tasks} user={user} updateActiveTask={updateActiveTask} activeTheme={activeTheme} updateActiveTheme={updateActiveTheme}/>
       </div>
     </div>
   );
