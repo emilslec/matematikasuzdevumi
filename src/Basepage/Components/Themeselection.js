@@ -51,7 +51,7 @@ const A = (ind) => {
   }
   else{updateShowBar(false)} });
 
-  const classes = [1,2,3,4, 5, 6, 7, 8, 9, 10 ,11, 12];
+  const classes = [1,2,3,4, 5, 6, 7, 8, 9];
     
   const ShowWitch = (ind) => {
     let arr = [];
