@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/*" element={<Signinpage user={user} updateUser={updateUser}/>} />
           <Route path="/izvelne" element={<Homepage updateUser={updateUser}  user={user} />} />
           <Route path="/uzdevums-pievienot/*" replace element={<Basepage user={user} updateUser={updateUser} />} />
-          <Route path="/udevums-pildit/*" element={<Taskpage user={user} updateUser={updateUser} />} />
+          <Route path="/uzdevums-pildit/*" element={<Taskpage user={user} updateUser={updateUser} />} />
         </Routes>
         <Problem />
       </>

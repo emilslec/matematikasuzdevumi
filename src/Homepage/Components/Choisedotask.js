@@ -25,7 +25,7 @@ const Choicedotask = ({updateUser, user}) => {
       </div>
       <div className="f5 f4-m f3-l fw2  black-50 mv3 lh-copy">
         <input
-           onClick={()=> navigate("/udevums-pildit")}
+           onClick={()=> navigate("/uzdevums-pildit")}
            className="pa3 a b--dark-blue ph6 br1 ba  tc pointer b--grey"
            type="submit"
            value="    Sākt pildīt uzdevumus    "
