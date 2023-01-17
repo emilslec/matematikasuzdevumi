@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/matematikasuzdevumi/static/css/main.62f340f3.css",
-    "main.js": "/matematikasuzdevumi/static/js/main.62a49cc0.js",
+    "main.css": "/matematikasuzdevumi/static/css/main.82b5919e.css",
+    "main.js": "/matematikasuzdevumi/static/js/main.b6089571.js",
     "static/js/787.9ff1e3d6.chunk.js": "/matematikasuzdevumi/static/js/787.9ff1e3d6.chunk.js",
     "static/media/image.jpg": "/matematikasuzdevumi/static/media/image.8a97d613eb29896a90b8.jpg",
     "static/media/bcg.svg": "/matematikasuzdevumi/static/media/bcg.ba98391028ddf74e176d.svg",
     "index.html": "/matematikasuzdevumi/index.html",
-    "main.62f340f3.css.map": "/matematikasuzdevumi/static/css/main.62f340f3.css.map",
-    "main.62a49cc0.js.map": "/matematikasuzdevumi/static/js/main.62a49cc0.js.map",
+    "main.82b5919e.css.map": "/matematikasuzdevumi/static/css/main.82b5919e.css.map",
+    "main.b6089571.js.map": "/matematikasuzdevumi/static/js/main.b6089571.js.map",
     "787.9ff1e3d6.chunk.js.map": "/matematikasuzdevumi/static/js/787.9ff1e3d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.62f340f3.css",
-    "static/js/main.62a49cc0.js"
+    "static/css/main.82b5919e.css",
+    "static/js/main.b6089571.js"
   ]
 }
