@@ -49,6 +49,7 @@ const Taskinput = ({taskId,updateUser, user}) => {
   }
 
   useEffect(()=> {
+    if(window.screen.width<=600) return
     const mfe = new MathfieldElement();
     document.addEventListener('DOMContentLoaded', () =>   
     mfe.renderMathInDocument()
@@ -71,7 +72,6 @@ const Taskinput = ({taskId,updateUser, user}) => {
         virtualKeyboards: "numeric symbols"
     });
   }
-
   return (   
     <div className="mr4 inpt">
       <div className="">
@@ -97,17 +97,25 @@ const Taskinput = ({taskId,updateUser, user}) => {
               </select>
          <br></br> <label className="center f5 fw6 ph0 mh0 ">Uzdevums ar matemātisku izteiksmi</label >
         <div className="mt2 db border-box hover-black mw6 bg-white  f3 ba b--black-50 pa2 br2 mb2" >
-          {/* <input></input> */}
+          {
+          window.screen.width<=600 &&
+            <input id="mf" 
+            onChange={(field)=> updateTaskText(field.target.value)}
+            name="comment"
+            className="mt2 db border-box hover-black w-100 h4 measure ba b--black-50 pa2 br2 mb2"
+            aria-describedby="comment-desc"
+            placeholder="Teksts"></input>
+          }
+          {window.screen.width>600&&
             <math-field virtual-keyboard-mode="manual"
-              //onChange={(field)=> console.log("a")}
-              id="mf" 
-              onfocus
-              style={{backgroundColor:'white'}}
-              name="comment"
-              className="mt2 db border-box hover-black w-100 h4 measure ba b--black-50 pa2 br2 mb2"
-              aria-describedby="comment-desc"
-              placeholder="Teksts"> 
+            id="mf" 
+            style={{backgroundColor:'white'}}
+            name="comment"
+            className="mt2 db border-box hover-black w-100 h4 measure ba b--black-50 pa2 br2 mb2"
+            aria-describedby="comment-desc"
+            placeholder="Teksts"> 
              </math-field>
+          }
         </div>
         <label className="center f5 fw6 ph0 mh0 ">Uzdevums ar tekstu</label >
             <textarea 
