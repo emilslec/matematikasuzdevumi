@@ -15,19 +15,16 @@ const Taskinput = ({taskId,updateUser, user}) => {
 
   const SendTask = (a) => {
     a.preventDefault();
-    let b;
-    if(document.getElementById("typz").value==="Uzdevums ar tekstu") b = ("\\"+ "text" +taskInfo)
-    else b=taskText
-    
-    if(!taskName || !b ||!taskAnswer || !taskId || !user.email|| !taskLevel){
-      return updateSubmitStatus('wrong');
-    }
+    let uzd;
+    if(document.getElementById("typz").value==="Uzdevums ar tekstu") uzd = ("\\"+"text"+taskInfo);
+    else uzd=taskText;
+    if(!taskName || !uzd ||!taskAnswer || !taskId || !user.email|| !taskLevel) return updateSubmitStatus('wrong');
     fetch('https://matematikasuzdevumiapi.herokuapp.com/addtask', {
       method : 'post',
       headers : {'Content-type' : 'application/json'},
       body : JSON.stringify({
         name: taskName,
-        text: b,
+        text: uzd,
         info: taskInfo,
         answer: taskAnswer,
         theme: taskId,

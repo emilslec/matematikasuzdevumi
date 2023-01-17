@@ -84,13 +84,13 @@ const Signin = ({ updateUser, user}) => {
            onClick={submitSignin}
            >Ieiet portālā</Link>
            {user.email && (
-          <Navigate to="/homepage" replace={true} />
+          <Navigate to="/izvelne" replace={true} />
         )}
         </div>
         <div className="">
         <Link
            className="w-30 mt3 link b ph3 pv2 input-reset black tc ba b--black bg-transparent grow pointer f6 dib"
-           to="/register"
+           to="/registracija"
            >Reģistrēties</Link>
         {/* </div>
         <div className="">
@@ -117,7 +117,7 @@ const Signin = ({ updateUser, user}) => {
           </div>
         }
         <Link 
-        to="/tasks"
+        to="/udevums-pildit"
          onClick={()=>
           updateUser("janka")}
          className="w-70 mt5 link b ph3 pv2 input-reset  tc ba b--black  grow pointer f4 db" //a white

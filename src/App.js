@@ -17,15 +17,14 @@ const App = () => {
   return( 
       <>
         <Routes >
-          <Route path="/*" element={<Signinpage user={user}  updateUser={updateUser}/>} />
-          <Route path="/homepage" element={<Homepage updateUser={updateUser}  user={user} />} />
-          <Route path="/taskadd/*" replace element={<Basepage user={user}  updateUser={updateUser}/>} />
-          <Route path="/tasks" element={<Taskpage  user={user} className="signinp"  updateUser={updateUser}/>} />
+          <Route path="/*" element={<Signinpage user={user} updateUser={updateUser}/>} />
+          <Route path="/izvelne" element={<Homepage updateUser={updateUser}  user={user} />} />
+          <Route path="/uzdevums-pievienot/*" replace element={<Basepage user={user} updateUser={updateUser} />} />
+          <Route path="/udevums-pildit/*" element={<Taskpage user={user} updateUser={updateUser} />} />
         </Routes>
         <Problem />
       </>
-      )
-   
+    )
 }
 
 export default App;

@@ -10,14 +10,14 @@ import './Signinpage.css'
 const Signinpage = ({user, updateUser}) => {
 
   return (
-    <div className="signinp">
+    <>
       <Title />
       <Routes>
-          <Route path="*" element={<Signin user={user}  updateUser={updateUser}/>} />
-          <Route path="Register" element={<Register updateUser={updateUser} /> }/>
+          <Route path="/*" element={<Signin user={user} updateUser={updateUser}/>} />
+          <Route path="/registracija" element={<Register />} />
         </Routes>
       <Outlet />
-    </div>
+    </>
   )
 }
 

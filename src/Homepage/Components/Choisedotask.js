@@ -25,7 +25,7 @@ const Choicedotask = ({updateUser, user}) => {
       </div>
       <div className="f5 f4-m f3-l fw2  black-50 mv3 lh-copy">
         <input
-           onClick={()=> navigate("/tasks")}
+           onClick={()=> navigate("/udevums-pildit")}
            className="pa3 a b--dark-blue ph6 br1 ba  tc pointer b--grey"
            type="submit"
            value="    Sākt pildīt uzdevumus    "
@@ -34,7 +34,7 @@ const Choicedotask = ({updateUser, user}) => {
       </div>
       <div className="f5  f4-m  f3-l fw2  black-50 mv3 lh-copy">
         <input
-           onClick={()=> navigate("/taskadd")}
+           onClick={()=> navigate("/uzdevums-pievienot")}
            disabled={!user.email}
            title={Titl()}
            className="pa3 a b--dark-blue br1 center ph6  ba  tc pointer b--grey"
