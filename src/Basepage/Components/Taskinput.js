@@ -12,7 +12,6 @@ const Taskinput = ({taskId,updateUser, user}) => {
   const [taskLevel, updateTaskLevel] = useState(1);
   const [submitStatus, updateSubmitStatus] = useState('pending');
 
-
   const SendTask = (a) => {
     a.preventDefault();
     let uzd;

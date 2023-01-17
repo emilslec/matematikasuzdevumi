@@ -18,7 +18,7 @@ const Taskpage = ({updateUser, updatePath, user}) => {
   
   useEffect(() => {
     if (activeTheme[1]===0)return
-    
+    updateTasks([])
     fetch('https://matematikasuzdevumiapi.herokuapp.com/tasks', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
@@ -28,8 +28,7 @@ const Taskpage = ({updateUser, updatePath, user}) => {
     })
     .then(response => response.json())
     .then(taskss => updateTasks(taskss))
-    .catch(err => {(console.log(err))
-    })
+    .catch()
     return () => {
     }
   },[activeTheme]);
